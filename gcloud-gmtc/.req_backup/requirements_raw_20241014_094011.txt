@@ -1,0 +1,206 @@
+
+# #? Python Utilities
+asyncpg  # For PostgreSQL asynchronous operations
+aiohttp  # For asynchronous HTTP requests
+requests  # For making HTTP requests
+beautifulsoup4  # For parsing HTML/XML
+pandas  # For data manipulation and analysis
+numpy  # For numerical operations, used by pandas
+titlecase #For capitalizing text titles
+streamlit  # For building web apps
+msal  # Microsoft Authentication Library (MSAL)
+google-cloud-secret-manager  # For Google Cloud Secret Manager
+pathlib  # Included in Python standard library
+
+
+# tqdm
+# timedelta
+# setproctitle
+# dataclasses
+# dataclasses-json
+# chardet
+# markdown
+# # ptvsd (Debugging)
+# # yarl (URL parsing)
+# # zipp (ZIP archive handling)
+# # wcwidth (Unicode character width)
+# # tqdm (Progress bar)
+
+# #? Asynchronous & Parallel Processing
+# asyncio
+# aiofiles
+# # nest-asyncio
+
+
+# # Search Engines
+# #
+
+
+
+# #? Web Development & API
+# flask
+# # Flask-APScheduler
+# quart
+# httpx
+# aiohttp
+# # aiohttp-wsgi
+# requests
+# # python-dotenv
+# ics
+# # flask-async
+# # chainlit
+# # websockets
+
+
+# ### Google Cloud Services
+# googlesearch-python
+# google-api-python-client
+# google-generativeai
+# google-auth-oauthlib 
+# pyjwt
+# firebase-admin
+# google-cloud-firestore
+# google-cloud-storage
+# google-cloud-secret-manager
+# streamlit-google-auth
+
+# #? Databases & ORMs
+# psycopg2-binary
+# asyncpg
+# chromadb
+# # pinecone-client
+# # sqlalchemy
+# # notion
+# # notion-client
+
+# #? Azure
+# msal
+# # azure-storage-blob
+# # azure-storage-blob[aio]
+# # azure-data-tables
+# # azure-data-tables[aio]
+
+
+
+# #? AI & Machine Learning
+# openai
+# ollama
+# nltk
+# # spacy
+# # transformers
+# # torch
+# # tensorflow
+# # tf-keras
+# # flax
+# # tiktoken
+# # datasets
+# # gpt4all
+# # openai-whisper
+# # sentence-transformers
+# # fastembed
+# # ctransformers
+
+
+# #? Data Manipulation & Analysis
+# numpy
+# pandas
+# matplotlib
+# # sympy
+# # ydata-profiling
+# # seaborn
+
+# #? Financial Data
+# nasdaq-data-link
+# quandl
+# # finnhub-python
+# # plaid-python
+# # yfinance
+
+# #? Document & Text Processing
+# pdf2image
+# # pdfminer.six
+# pytesseract
+# pypdf2
+# pdfplumber
+# python-docx
+# python-pptx
+# openpyxl
+# # html2text
+# # tldextract
+# titlecase
+# # pptx2md
+# # reportlab
+# # pymupdf
+
+
+# #? Image Processing
+# pillow
+# opencv-python
+# imagehash
+# # scikit-image
+
+# #? Video Processing
+# pytube
+# youtube_dl
+
+# #? Scraping & Web Automation
+# beautifulsoup4
+# playwright
+# # selenium
+# # chrome-cookiejar
+# # pyppeteer
+# # duckduckgo-search
+
+# #? LangChain Ecosystem
+# # langchain==0.0.314
+# # langchain
+# # langchainhub
+# # langchain-community
+# # langsmith
+# # langchain_openai
+# # langchain_community
+
+# #? Data Generation & Manipulation
+# # faker
+# # aenum
+
+# #? Speech Recognition
+# deepgram-sdk
+# pyaudio
+# sounddevice
+# openai-whisper
+
+
+# #? Apple Development
+# # pyobjc
+
+# #? Streamlit
+# streamlit
+# watchdog
+# streamlit-aggrid
+# streamlit-audiorec
+# extra-streamlit-components
+# # streamlit_extras
+# # streamlit-elements
+# # streamlit-card
+# # streamlit-option-menu
+# # streamlit-code-editor
+# # streamlit-monaco
+# # streamlit-chat
+# # streamlit-ace # Streaml
+# # spacy-streamlit # Streamlit components for spaCy
+# # streamlit-components # Streamlit component for rendering HTML elements
+# # streamlit-text-labeler # Streamlit component for labeling text
+# # streamlit-pandas-profiling # Streamlit component for rendering Pandas Profiling
+# # streamlit-wordcloud
+# # streamlit-excel-table
+# # streamlit-tags
+# # streamlit-tree-select
+# # streamlit-modal
+# # streamlit-labelstudio
+# # st-material-table
+
+# #? Others
+# # ipython
+# # nats-py
+

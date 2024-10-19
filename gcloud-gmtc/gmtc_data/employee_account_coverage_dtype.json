@@ -1,0 +1,1 @@
+{"iaccountid": "float64", "empl_id": "object", "gpacct": "object", "gpemplid": "float64", "acctname": "object", "lastn": "object", "firstn": "object", "positiondesc": "datetime64[ns]", "coveragerole": "object", "telephone": "object", "fax": "object"}

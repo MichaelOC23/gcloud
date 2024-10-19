@@ -1,0 +1,1 @@
+{"gpemplid": "float64", "empid": "object", "firstn": "object", "lastn": "object", "email": "object", "biotext": "object", "photofilename": "float64", "dept": "object", "positiondesc": "datetime64[ns]", "telephone": "object", "fax": "object"}

@@ -1,0 +1,661 @@
+{
+    "holdings": {
+        "accountnum": {
+            "aggFunc": "first",
+            
+            "headerName": "Acct #",
+            "hide": false,
+            "pinned": false,
+            "rowGroup": false,
+            "type": "object"
+        },
+        "accruedintb": {
+            "aggFunc": "sum",
+            
+            "headerName": "Acc'd Int.",
+            "hide": false,
+            "pinned": false,
+            "rowGroup": false,
+            "type": "float64"
+        },
+        "acquisitionunitcost": {
+            "aggFunc": "sum",
+            
+            "headerName": "Cost",
+            "hide": false,
+            "pinned": false,
+            "rowGroup": false,
+            "type": "float64"
+        },
+        "acquitiondate": {
+            "aggFunc": "first",
+            
+            "headerName": "Acquired On",
+            "hide": false,
+            "pinned": false,
+            "rowGroup": false,
+            "type": "datetime64[ns]"
+        },
+        "allocation": {
+            "aggFunc": "first",
+            
+            "headerName": "allocation",
+            "hide": false,
+            "pinned": false,
+            "rowGroup": false,
+            "type": "object"
+        },
+        "amortization": {
+            "aggFunc": "sum",
+            
+            "headerName": "Amortization",
+            "hide": false,
+            "pinned": false,
+            "rowGroup": false,
+            "type": "float64"
+        },
+        "asset_type": {
+            "aggFunc": "first",
+            
+            "headerName": "Asset Type",
+            "hide": false,
+            "pinned": false,
+            "rowGroup": false,
+            "type": "object"
+        },
+        "assetclass": {
+            "aggFunc": "first",
+            
+            "headerName": "Asset Class",
+            "hide": false,
+            "pinned": false,
+            "rowGroup": false,
+            "type": "object"
+        },
+        "assetsector": {
+            "aggFunc": "first",
+            
+            "headerName": "Sector",
+            "hide": false,
+            "pinned": false,
+            "rowGroup": false,
+            "type": "object"
+        },
+        "assetsubclass": {
+            "aggFunc": "first",
+            
+            "headerName": "Sub Class",
+            "hide": false,
+            "pinned": false,
+            "rowGroup": false,
+            "type": "object"
+        },
+        "bookvalue": {
+            "aggFunc": "sum",
+            
+            "headerName": "Value",
+            "hide": false,
+            "pinned": false,
+            "rowGroup": false,
+            "type": "float64"
+        },
+        "calldate": {
+            "aggFunc": "first",
+            
+            "headerName": "Call Date",
+            "hide": false,
+            "pinned": false,
+            "rowGroup": false,
+            "type": "object"
+        },
+        "coveragerole": {
+            "aggFunc": "first",
+            
+            "headerName": "Cov. Role",
+            "hide": false,
+            "pinned": false,
+            "rowGroup": false,
+            "type": "object"
+        },
+        "coveragerole_x": {
+            "aggFunc": "first",
+            
+            "headerName": "coveragerole_x",
+            "hide": true,
+            "pinned": false,
+            "rowGroup": false,
+            "type": "object"
+        },
+        "coveragerole_y": {
+            "aggFunc": "first",
+            
+            "headerName": "coveragerole_y",
+            "hide": true,
+            "pinned": false,
+            "rowGroup": false,
+            "type": "object"
+        },
+        "cusip": {
+            "aggFunc": "first",
+            
+            "headerName": "CUSIP",
+            "hide": false,
+            "pinned": false,
+            "rowGroup": false,
+            "type": "object"
+        },
+        "endingdate_x": {
+            "aggFunc": "first",
+            
+            "headerName": "endingdate_x",
+            "hide": true,
+            "pinned": false,
+            "rowGroup": false,
+            "type": "datetime64[ns]"
+        },
+        "endingdate_y": {
+            "aggFunc": "first",
+            
+            "headerName": "endingdate_y",
+            "hide": true,
+            "pinned": false,
+            "rowGroup": false,
+            "type": "datetime64[ns]"
+        },
+        "eps": {
+            "aggFunc": "sum",
+            
+            "headerName": "EPS",
+            "hide": false,
+            "pinned": false,
+            "rowGroup": false,
+            "type": "float64"
+        },
+        "estincomeb": {
+            "aggFunc": "sum",
+            
+            "headerName": "Est. Income",
+            "hide": false,
+            "pinned": false,
+            "rowGroup": false,
+            "type": "float64"
+        },
+        "expirationdate": {
+            "aggFunc": "first",
+            
+            "headerName": "Exp. Date",
+            "hide": false,
+            "pinned": false,
+            "rowGroup": false,
+            "type": "datetime64[ns]"
+        },
+        "fax": {
+            "aggFunc": "first",
+            
+            "headerName": "Fax",
+            "hide": false,
+            "pinned": false,
+            "rowGroup": false,
+            "type": "object"
+        },
+        "fax_x": {
+            "aggFunc": "first",
+            
+            "headerName": "fax_x",
+            "hide": true,
+            "pinned": false,
+            "rowGroup": false,
+            "type": "object"
+        },
+        "fax_y": {
+            "aggFunc": "first",
+            
+            "headerName": "fax_y",
+            "hide": true,
+            "pinned": false,
+            "rowGroup": false,
+            "type": "object"
+        },
+        "firstn": {
+            "aggFunc": "first",
+            
+            "headerName": "firstn",
+            "hide": true,
+            "pinned": false,
+            "rowGroup": false,
+            "type": "object"
+        },
+        "firstn_x": {
+            "aggFunc": "first",
+            
+            "headerName": "firstn_x",
+            "hide": true,
+            "pinned": false,
+            "rowGroup": false,
+            "type": "object"
+        },
+        "firstn_y": {
+            "aggFunc": "first",
+            
+            "headerName": "firstn_y",
+            "hide": true,
+            "pinned": false,
+            "rowGroup": false,
+            "type": "object"
+        },
+        "gpacct": {
+            "aggFunc": "first",
+            
+            "headerName": "GP Acct",
+            "hide": false,
+            "pinned": false,
+            "rowGroup": false,
+            "type": "object"
+        },
+        "gpacct_x": {
+            "aggFunc": "first",
+            
+            "headerName": "gpacct_x",
+            "hide": true,
+            "pinned": false,
+            "rowGroup": false,
+            "type": "object"
+        },
+        "gpacct_y": {
+            "aggFunc": "first",
+            
+            "headerName": "gpacct_y",
+            "hide": true,
+            "pinned": false,
+            "rowGroup": false,
+            "type": "object"
+        },
+        "gpemplid": {
+            "aggFunc": "sum",
+            
+            "headerName": "gpemplid",
+            "hide": true,
+            "pinned": false,
+            "rowGroup": false,
+            "type": "float64"
+        },
+        "investmentoffemail": {
+            "aggFunc": "sum",
+            
+            "headerName": "investmentoffemail",
+            "hide": true,
+            "pinned": false,
+            "rowGroup": false,
+            "type": "float64"
+        },
+        "investmentoffname": {
+            "aggFunc": "sum",
+            
+            "headerName": "investmentoffname",
+            "hide": true,
+            "pinned": false,
+            "rowGroup": false,
+            "type": "float64"
+        },
+        "investmentoffphone": {
+            "aggFunc": "sum",
+            
+            "headerName": "investmentoffphone",
+            "hide": true,
+            "pinned": false,
+            "rowGroup": false,
+            "type": "float64"
+        },
+        "issuename1": {
+            "aggFunc": "first",
+            
+            "headerName": "Security Name",
+            "hide": false,
+            "pinned": false,
+            "rowGroup": false,
+            "type": "object"
+        },
+        "issuename2": {
+            "aggFunc": "first",
+            
+            "headerName": "issuename2",
+            "hide": true,
+            "pinned": false,
+            "rowGroup": false,
+            "type": "object"
+        },
+        "lastn": {
+            "aggFunc": "first",
+            
+            "headerName": "lastn",
+            "hide": true,
+            "pinned": false,
+            "rowGroup": false,
+            "type": "object"
+        },
+        "lastn_x": {
+            "aggFunc": "first",
+            
+            "headerName": "lastn_x",
+            "hide": true,
+            "pinned": false,
+            "rowGroup": false,
+            "type": "object"
+        },
+        "lastn_y": {
+            "aggFunc": "first",
+            
+            "headerName": "lastn_y",
+            "hide": true,
+            "pinned": false,
+            "rowGroup": false,
+            "type": "object"
+        },
+        "lname1": {
+            "aggFunc": "first",
+            
+            "headerName": "lname1",
+            "hide": true,
+            "pinned": false,
+            "rowGroup": false,
+            "type": "object"
+        },
+        "lname2": {
+            "aggFunc": "sum",
+            
+            "headerName": "lname2",
+            "hide": true,
+            "pinned": false,
+            "rowGroup": false,
+            "type": "float64"
+        },
+        "lname3": {
+            "aggFunc": "sum",
+            
+            "headerName": "lname3",
+            "hide": true,
+            "pinned": false,
+            "rowGroup": false,
+            "type": "float64"
+        },
+        "lname4": {
+            "aggFunc": "sum",
+            
+            "headerName": "lname4",
+            "hide": true,
+            "pinned": false,
+            "rowGroup": false,
+            "type": "float64"
+        },
+        "lname5": {
+            "aggFunc": "sum",
+            
+            "headerName": "lname5",
+            "hide": true,
+            "pinned": false,
+            "rowGroup": false,
+            "type": "float64"
+        },
+        "marketprice": {
+            "aggFunc": "sum",
+            
+            "headerName": "Price",
+            "hide": false,
+            "pinned": false,
+            "rowGroup": false,
+            "type": "float64"
+        },
+        "marketvalue": {
+            "aggFunc": "sum",
+            
+            "headerName": "Mkt Vaue",
+            "hide": false,
+            "pinned": false,
+            "rowGroup": false,
+            "type": "float64"
+        },
+        "maturitydate": {
+            "aggFunc": "first",
+            
+            "headerName": "Maturity",
+            "hide": false,
+            "pinned": false,
+            "rowGroup": false,
+            "type": "datetime64[ns]"
+        },
+        "minsecclass": {
+            "aggFunc": "sum",
+            
+            "headerName": "Sec. Class",
+            "hide": false,
+            "pinned": false,
+            "rowGroup": false,
+            "type": "float64"
+        },
+        "moodyrating": {
+            "aggFunc": "first",
+            
+            "headerName": "Rating",
+            "hide": false,
+            "pinned": false,
+            "rowGroup": false,
+            "type": "object"
+        },
+        "percentoftmv": {
+            "aggFunc": "sum",
+            
+            "headerName": "% of MV",
+            "hide": false,
+            "pinned": false,
+            "rowGroup": false,
+            "type": "float64"
+        },
+        "plname2": {
+            "aggFunc": "sum",
+            
+            "headerName": "plname2",
+            "hide": true,
+            "pinned": false,
+            "rowGroup": false,
+            "type": "float64"
+        },
+        "plname3": {
+            "aggFunc": "sum",
+            
+            "headerName": "plname3",
+            "hide": true,
+            "pinned": false,
+            "rowGroup": false,
+            "type": "float64"
+        },
+        "plname4": {
+            "aggFunc": "sum",
+            
+            "headerName": "plname4",
+            "hide": true,
+            "pinned": false,
+            "rowGroup": false,
+            "type": "float64"
+        },
+        "plname5": {
+            "aggFunc": "sum",
+            
+            "headerName": "plname5",
+            "hide": true,
+            "pinned": false,
+            "rowGroup": false,
+            "type": "float64"
+        },
+        "portnum": {
+            "aggFunc": "first",
+            
+            "headerName": "Portfolio",
+            "hide": false,
+            "pinned": false,
+            "rowGroup": false,
+            "type": "object"
+        },
+        "priceaspercent": {
+            "aggFunc": "first",
+            
+            "headerName": "Price as %",
+            "hide": false,
+            "pinned": false,
+            "rowGroup": false,
+            "type": "object"
+        },
+        "psname": {
+            "aggFunc": "first",
+            
+            "headerName": "psname",
+            "hide": true,
+            "pinned": false,
+            "rowGroup": false,
+            "type": "object"
+        },
+        "secid": {
+            "aggFunc": "first",
+            
+            "headerName": "secid",
+            "hide": true,
+            "pinned": false,
+            "rowGroup": false,
+            "type": "object"
+        },
+        "securityid": {
+            "aggFunc": "first",
+            
+            "headerName": "securityid",
+            "hide": true,
+            "pinned": false,
+            "rowGroup": false,
+            "type": "object"
+        },
+        "shortname": {
+            "aggFunc": "first",
+            
+            "headerName": "Acct. Name",
+            "hide": false,
+            "pinned": false,
+            "rowGroup": false,
+            "type": "object"
+        },
+        "sma": {
+            "aggFunc": "sum",
+            
+            "headerName": "sma",
+            "hide": true,
+            "pinned": false,
+            "rowGroup": false,
+            "type": "float64"
+        },
+        "sname": {
+            "aggFunc": "first",
+            
+            "headerName": "sname",
+            "hide": true,
+            "pinned": false,
+            "rowGroup": false,
+            "type": "object"
+        },
+        "taxcost": {
+            "aggFunc": "sum",
+            
+            "headerName": "Tax Cost",
+            "hide": false,
+            "pinned": false,
+            "rowGroup": false,
+            "type": "float64"
+        },
+        "taxlotnum": {
+            "aggFunc": "sum",
+            
+            "headerName": "Lot #",
+            "hide": false,
+            "pinned": false,
+            "rowGroup": false,
+            "type": "float64"
+        },
+        "telephone": {
+            "aggFunc": "first",
+            
+            "headerName": "telephone",
+            "hide": true,
+            "pinned": false,
+            "rowGroup": false,
+            "type": "object"
+        },
+        "telephone_x": {
+            "aggFunc": "first",
+            
+            "headerName": "telephone_x",
+            "hide": true,
+            "pinned": false,
+            "rowGroup": false,
+            "type": "object"
+        },
+        "telephone_y": {
+            "aggFunc": "first",
+            
+            "headerName": "telephone_y",
+            "hide": true,
+            "pinned": false,
+            "rowGroup": false,
+            "type": "object"
+        },
+        "ticker": {
+            "aggFunc": "first",
+            
+            "headerName": "Ticker",
+            "hide": false,
+            "pinned": false,
+            "rowGroup": false,
+            "type": "object"
+        },
+        "units": {
+            "aggFunc": "sum",
+            
+            "headerName": "Units",
+            "hide": false,
+            "pinned": false,
+            "rowGroup": false,
+            "type": "float64"
+        },
+        "unrealgl": {
+            "aggFunc": "sum",
+            
+            "headerName": "UGL",
+            "hide": false,
+            "pinned": false,
+            "rowGroup": false,
+            "type": "float64"
+        },
+        "unreallongtermcapgl": {
+            "aggFunc": "sum",
+            
+            "headerName": "LT UGL",
+            "hide": false,
+            "pinned": false,
+            "rowGroup": false,
+            "type": "float64"
+        },
+        "unrealshorttermcapgl": {
+            "aggFunc": "sum",
+            
+            "headerName": "ST UGL",
+            "hide": false,
+            "pinned": false,
+            "rowGroup": false,
+            "type": "float64"
+        },
+        "vchshortname": {
+            "aggFunc": "sum",
+            
+            "headerName": "vchshortname",
+            "hide": true,
+            "pinned": false,
+            "rowGroup": false,
+            "type": "float64"
+        }
+    }
+}

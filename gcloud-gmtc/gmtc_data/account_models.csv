@@ -1,0 +1,115 @@
+AccountNum,PolicyModelName,PolicyModelClass,PolicyAssetClassifier,PolicyClassType,PolicyClassParent,PolicyMinimumPercent,PolicyMaximumPercent,PolicyPercent,TargetModelName,TargetModelClass,TargetAssetClassifier,TargetClassType,TargetClassParent,TargetMinimumPercent,TargetMaximumPercent,TargetPercent
+9999-01-1/1,PW-POL-CP-GRO-TX,Growth Core Plus TX - PW,Absolute Return,AssetSubClass,Alternatives & Other,0,0,0,IPC-PW-CP-GRO-TX,Core Plus - Growth - Taxable,,,,,,
+9999-01-1/1,PW-POL-CP-GRO-TX,Growth Core Plus TX - PW,Alternatives & Other,AssetClass,,0,20,5,IPC-PW-CP-GRO-TX,Core Plus - Growth - Taxable,Alternatives & Other,AssetClass,,0,100,5
+9999-01-1/1,PW-POL-CP-GRO-TX,Growth Core Plus TX - PW,Cash,AssetClass,,0,20,3,IPC-PW-CP-GRO-TX,Core Plus - Growth - Taxable,Cash,AssetClass,,0,100,3
+9999-01-1/1,PW-POL-CP-GRO-TX,Growth Core Plus TX - PW,Cash,AssetSubClass,Cash,0,13,3,IPC-PW-CP-GRO-TX,Core Plus - Growth - Taxable,Cash,AssetSubClass,Cash,0,100,3
+9999-01-1/1,PW-POL-CP-GRO-TX,Growth Core Plus TX - PW,Core,AssetSubClass,Fixed Income,0,17,5.6,IPC-PW-CP-GRO-TX,Core Plus - Growth - Taxable,Core,AssetSubClass,Fixed Income,0,100,10
+9999-01-1/1,PW-POL-CP-GRO-TX,Growth Core Plus TX - PW,Equity,AssetClass,,70,100,85,IPC-PW-CP-GRO-TX,Core Plus - Growth - Taxable,Equity,AssetClass,,0,100,82
+9999-01-1/1,PW-POL-CP-GRO-TX,Growth Core Plus TX - PW,Fixed Income,AssetClass,,0,22,7,IPC-PW-CP-GRO-TX,Core Plus - Growth - Taxable,Fixed Income,AssetClass,,0,100,10
+9999-01-1/1,PW-POL-CP-GRO-TX,Growth Core Plus TX - PW,Global,AssetSubClass,Fixed Income,0,3.4,0,IPC-PW-CP-GRO-TX,Core Plus - Growth - Taxable,,,,,,
+9999-01-1/1,PW-POL-CP-GRO-TX,Growth Core Plus TX - PW,Global Equity,AssetSubClass,Equity,0,19,0,IPC-PW-CP-GRO-TX,Core Plus - Growth - Taxable,,,,,,
+9999-01-1/1,PW-POL-CP-GRO-TX,Growth Core Plus TX - PW,High Yield,AssetSubClass,Fixed Income,0,6.8,1.4,IPC-PW-CP-GRO-TX,Core Plus - Growth - Taxable,,,,,,
+9999-01-1/1,PW-POL-CP-GRO-TX,Growth Core Plus TX - PW,International,AssetSubClass,Equity,0,38,17,IPC-PW-CP-GRO-TX,Core Plus - Growth - Taxable,International,AssetSubClass,Equity,0,100,14.35
+9999-01-1/1,PW-POL-CP-GRO-TX,Growth Core Plus TX - PW,Other,AssetSubClass,Alternatives & Other,0,10,0,IPC-PW-CP-GRO-TX,Core Plus - Growth - Taxable,,,,,,
+9999-01-1/1,PW-POL-CP-GRO-TX,Growth Core Plus TX - PW,Other Equity,AssetSubClass,Equity,0,19,0,IPC-PW-CP-GRO-TX,Core Plus - Growth - Taxable,,,,,,
+9999-01-1/1,PW-POL-CP-GRO-TX,Growth Core Plus TX - PW,Private Investments,AssetSubClass,Alternatives & Other,0,0,0,IPC-PW-CP-GRO-TX,Core Plus - Growth - Taxable,,,,,,
+9999-01-1/1,PW-POL-CP-GRO-TX,Growth Core Plus TX - PW,Real Assets,AssetSubClass,Alternatives & Other,0,15,5,IPC-PW-CP-GRO-TX,Core Plus - Growth - Taxable,Real Assets,AssetSubClass,Alternatives & Other,0,100,5
+9999-01-1/1,PW-POL-CP-GRO-TX,Growth Core Plus TX - PW,TIPS,AssetSubClass,Fixed Income,0,3.4,0,IPC-PW-CP-GRO-TX,Core Plus - Growth - Taxable,,,,,,
+9999-01-1/1,PW-POL-CP-GRO-TX,Growth Core Plus TX - PW,U.S. Large Cap,AssetSubClass,Equity,37.5,85.5,59.5,IPC-PW-CP-GRO-TX,Core Plus - Growth - Taxable,U.S. Large Cap,AssetSubClass,Equity,0,100,57.4
+9999-01-1/1,PW-POL-CP-GRO-TX,Growth Core Plus TX - PW,U.S. Small Cap,AssetSubClass,Equity,0,28.5,8.5,IPC-PW-CP-GRO-TX,Core Plus - Growth - Taxable,U.S. Small Cap,AssetSubClass,Equity,0,100,10.25
+9999-01-1/1,PW-POL-CP-GRO-TX,Growth Core Plus TX - PW,Unconstrained and Other,AssetSubClass,Fixed Income,0,3.4,0,IPC-PW-CP-GRO-TX,Core Plus - Growth - Taxable,,,,,,
+9999-02-1/2,PW-POL-CP-GRO-TX,Growth Core Plus TX - PW,Absolute Return,AssetSubClass,Alternatives & Other,0,0,0,IPC-PW-CP-GRO-TX,Core Plus - Growth - Taxable,,,,,,
+9999-02-1/2,PW-POL-CP-GRO-TX,Growth Core Plus TX - PW,Alternatives & Other,AssetClass,,0,20,5,IPC-PW-CP-GRO-TX,Core Plus - Growth - Taxable,Alternatives & Other,AssetClass,,0,100,5
+9999-02-1/2,PW-POL-CP-GRO-TX,Growth Core Plus TX - PW,Cash,AssetClass,,0,20,3,IPC-PW-CP-GRO-TX,Core Plus - Growth - Taxable,Cash,AssetClass,,0,100,3
+9999-02-1/2,PW-POL-CP-GRO-TX,Growth Core Plus TX - PW,Cash,AssetSubClass,Cash,0,13,3,IPC-PW-CP-GRO-TX,Core Plus - Growth - Taxable,Cash,AssetSubClass,Cash,0,100,3
+9999-02-1/2,PW-POL-CP-GRO-TX,Growth Core Plus TX - PW,Core,AssetSubClass,Fixed Income,0,17,5.6,IPC-PW-CP-GRO-TX,Core Plus - Growth - Taxable,Core,AssetSubClass,Fixed Income,0,100,10
+9999-02-1/2,PW-POL-CP-GRO-TX,Growth Core Plus TX - PW,Equity,AssetClass,,70,100,85,IPC-PW-CP-GRO-TX,Core Plus - Growth - Taxable,Equity,AssetClass,,0,100,82
+9999-02-1/2,PW-POL-CP-GRO-TX,Growth Core Plus TX - PW,Fixed Income,AssetClass,,0,22,7,IPC-PW-CP-GRO-TX,Core Plus - Growth - Taxable,Fixed Income,AssetClass,,0,100,10
+9999-02-1/2,PW-POL-CP-GRO-TX,Growth Core Plus TX - PW,Global,AssetSubClass,Fixed Income,0,3.4,0,IPC-PW-CP-GRO-TX,Core Plus - Growth - Taxable,,,,,,
+9999-02-1/2,PW-POL-CP-GRO-TX,Growth Core Plus TX - PW,Global Equity,AssetSubClass,Equity,0,19,0,IPC-PW-CP-GRO-TX,Core Plus - Growth - Taxable,,,,,,
+9999-02-1/2,PW-POL-CP-GRO-TX,Growth Core Plus TX - PW,High Yield,AssetSubClass,Fixed Income,0,6.8,1.4,IPC-PW-CP-GRO-TX,Core Plus - Growth - Taxable,,,,,,
+9999-02-1/2,PW-POL-CP-GRO-TX,Growth Core Plus TX - PW,International,AssetSubClass,Equity,0,38,17,IPC-PW-CP-GRO-TX,Core Plus - Growth - Taxable,International,AssetSubClass,Equity,0,100,14.35
+9999-02-1/2,PW-POL-CP-GRO-TX,Growth Core Plus TX - PW,Other,AssetSubClass,Alternatives & Other,0,10,0,IPC-PW-CP-GRO-TX,Core Plus - Growth - Taxable,,,,,,
+9999-02-1/2,PW-POL-CP-GRO-TX,Growth Core Plus TX - PW,Other Equity,AssetSubClass,Equity,0,19,0,IPC-PW-CP-GRO-TX,Core Plus - Growth - Taxable,,,,,,
+9999-02-1/2,PW-POL-CP-GRO-TX,Growth Core Plus TX - PW,Private Investments,AssetSubClass,Alternatives & Other,0,0,0,IPC-PW-CP-GRO-TX,Core Plus - Growth - Taxable,,,,,,
+9999-02-1/2,PW-POL-CP-GRO-TX,Growth Core Plus TX - PW,Real Assets,AssetSubClass,Alternatives & Other,0,15,5,IPC-PW-CP-GRO-TX,Core Plus - Growth - Taxable,Real Assets,AssetSubClass,Alternatives & Other,0,100,5
+9999-02-1/2,PW-POL-CP-GRO-TX,Growth Core Plus TX - PW,TIPS,AssetSubClass,Fixed Income,0,3.4,0,IPC-PW-CP-GRO-TX,Core Plus - Growth - Taxable,,,,,,
+9999-02-1/2,PW-POL-CP-GRO-TX,Growth Core Plus TX - PW,U.S. Large Cap,AssetSubClass,Equity,37.5,85.5,59.5,IPC-PW-CP-GRO-TX,Core Plus - Growth - Taxable,U.S. Large Cap,AssetSubClass,Equity,0,100,57.4
+9999-02-1/2,PW-POL-CP-GRO-TX,Growth Core Plus TX - PW,U.S. Small Cap,AssetSubClass,Equity,0,28.5,8.5,IPC-PW-CP-GRO-TX,Core Plus - Growth - Taxable,U.S. Small Cap,AssetSubClass,Equity,0,100,10.25
+9999-02-1/2,PW-POL-CP-GRO-TX,Growth Core Plus TX - PW,Unconstrained and Other,AssetSubClass,Fixed Income,0,3.4,0,IPC-PW-CP-GRO-TX,Core Plus - Growth - Taxable,,,,,,
+9999-03-1/3,PW-POL-CR-GWI-TE,Growth with Income Core TE - PW,Absolute Return,AssetSubClass,Alternatives & Other,0,0,0,IPC-PW-CR-GWI-TE,Core - Growth w/ Income - Tax Exempt,,,,,,
+9999-03-1/3,PW-POL-CR-GWI-TE,Growth with Income Core TE - PW,Alternatives & Other,AssetClass,,0,0,0,IPC-PW-CR-GWI-TE,Core - Growth w/ Income - Tax Exempt,,,,,,
+9999-03-1/3,PW-POL-CR-GWI-TE,Growth with Income Core TE - PW,Cash,AssetClass,,0,20,3,IPC-PW-CR-GWI-TE,Core - Growth w/ Income - Tax Exempt,Cash,AssetClass,,0,100,3
+9999-03-1/3,PW-POL-CR-GWI-TE,Growth with Income Core TE - PW,Cash,AssetSubClass,Cash,0,13,3,IPC-PW-CR-GWI-TE,Core - Growth w/ Income - Tax Exempt,Cash,AssetSubClass,Cash,0,100,3
+9999-03-1/3,PW-POL-CR-GWI-TE,Growth with Income Core TE - PW,Core,AssetSubClass,Fixed Income,27,47,37,IPC-PW-CR-GWI-TE,Core - Growth w/ Income - Tax Exempt,Core,AssetSubClass,Fixed Income,0,100,40
+9999-03-1/3,PW-POL-CR-GWI-TE,Growth with Income Core TE - PW,Equity,AssetClass,,45,75,60,IPC-PW-CR-GWI-TE,Core - Growth w/ Income - Tax Exempt,Equity,AssetClass,,0,100,57.0001
+9999-03-1/3,PW-POL-CR-GWI-TE,Growth with Income Core TE - PW,Fixed Income,AssetClass,,22,52,37,IPC-PW-CR-GWI-TE,Core - Growth w/ Income - Tax Exempt,Fixed Income,AssetClass,,0,100,40
+9999-03-1/3,PW-POL-CR-GWI-TE,Growth with Income Core TE - PW,Global,AssetSubClass,Fixed Income,0,0,0,IPC-PW-CR-GWI-TE,Core - Growth w/ Income - Tax Exempt,,,,,,
+9999-03-1/3,PW-POL-CR-GWI-TE,Growth with Income Core TE - PW,Global Equity,AssetSubClass,Equity,0,14,0,IPC-PW-CR-GWI-TE,Core - Growth w/ Income - Tax Exempt,,,,,,
+9999-03-1/3,PW-POL-CR-GWI-TE,Growth with Income Core TE - PW,High Yield,AssetSubClass,Fixed Income,0,0,0,IPC-PW-CR-GWI-TE,Core - Growth w/ Income - Tax Exempt,,,,,,
+9999-03-1/3,PW-POL-CR-GWI-TE,Growth with Income Core TE - PW,International,AssetSubClass,Equity,0,28,12,IPC-PW-CR-GWI-TE,Core - Growth w/ Income - Tax Exempt,International,AssetSubClass,Equity,0,100,9.9751
+9999-03-1/3,PW-POL-CR-GWI-TE,Growth with Income Core TE - PW,Other,AssetSubClass,Alternatives & Other,0,10,0,IPC-PW-CR-GWI-TE,Core - Growth w/ Income - Tax Exempt,,,,,,
+9999-03-1/3,PW-POL-CR-GWI-TE,Growth with Income Core TE - PW,Other Equity,AssetSubClass,Equity,0,14,0,IPC-PW-CR-GWI-TE,Core - Growth w/ Income - Tax Exempt,,,,,,
+9999-03-1/3,PW-POL-CR-GWI-TE,Growth with Income Core TE - PW,Private Investments,AssetSubClass,Alternatives & Other,0,0,0,IPC-PW-CR-GWI-TE,Core - Growth w/ Income - Tax Exempt,,,,,,
+9999-03-1/3,PW-POL-CR-GWI-TE,Growth with Income Core TE - PW,Real Assets,AssetSubClass,Alternatives & Other,0,0,0,IPC-PW-CR-GWI-TE,Core - Growth w/ Income - Tax Exempt,,,,,,
+9999-03-1/3,PW-POL-CR-GWI-TE,Growth with Income Core TE - PW,TIPS,AssetSubClass,Fixed Income,0,0,0,IPC-PW-CR-GWI-TE,Core - Growth w/ Income - Tax Exempt,,,,,,
+9999-03-1/3,PW-POL-CR-GWI-TE,Growth with Income Core TE - PW,U.S. Large Cap,AssetSubClass,Equity,25,63,42,IPC-PW-CR-GWI-TE,Core - Growth w/ Income - Tax Exempt,U.S. Large Cap,AssetSubClass,Equity,0,100,39.9
+9999-03-1/3,PW-POL-CR-GWI-TE,Growth with Income Core TE - PW,U.S. Small Cap,AssetSubClass,Equity,0,21,6,IPC-PW-CR-GWI-TE,Core - Growth w/ Income - Tax Exempt,U.S. Small Cap,AssetSubClass,Equity,0,100,7.125
+9999-03-1/3,PW-POL-CR-GWI-TE,Growth with Income Core TE - PW,Unconstrained and Other,AssetSubClass,Fixed Income,0,0,0,IPC-PW-CR-GWI-TE,Core - Growth w/ Income - Tax Exempt,,,,,,
+9999-04-1/4,PW-POL-CR-ALL-TX,All Equity Core TX - PW,Absolute Return,AssetSubClass,Alternatives & Other,0,0,0,IPC-PW-CR-ALL-TX,Core - All Equity - Taxable,,,,,,
+9999-04-1/4,PW-POL-CR-ALL-TX,All Equity Core TX - PW,Alternatives & Other,AssetClass,,0,0,0,IPC-PW-CR-ALL-TX,Core - All Equity - Taxable,,,,,,
+9999-04-1/4,PW-POL-CR-ALL-TX,All Equity Core TX - PW,Cash,AssetClass,,0,20,1,IPC-PW-CR-ALL-TX,Core - All Equity - Taxable,Cash,AssetClass,,0,100,1
+9999-04-1/4,PW-POL-CR-ALL-TX,All Equity Core TX - PW,Cash,AssetSubClass,Cash,0,11,1,IPC-PW-CR-ALL-TX,Core - All Equity - Taxable,Cash,AssetSubClass,Cash,0,100,1
+9999-04-1/4,PW-POL-CR-ALL-TX,All Equity Core TX - PW,Core,AssetSubClass,Fixed Income,0,0,0,IPC-PW-CR-ALL-TX,Core - All Equity - Taxable,,,,,,
+9999-04-1/4,PW-POL-CR-ALL-TX,All Equity Core TX - PW,Equity,AssetClass,,84,100,99,IPC-PW-CR-ALL-TX,Core - All Equity - Taxable,Equity,AssetClass,,0,100,99.0001
+9999-04-1/4,PW-POL-CR-ALL-TX,All Equity Core TX - PW,Fixed Income,AssetClass,,0,0,0,IPC-PW-CR-ALL-TX,Core - All Equity - Taxable,,,,,,
+9999-04-1/4,PW-POL-CR-ALL-TX,All Equity Core TX - PW,Global,AssetSubClass,Fixed Income,0,0,0,IPC-PW-CR-ALL-TX,Core - All Equity - Taxable,,,,,,
+9999-04-1/4,PW-POL-CR-ALL-TX,All Equity Core TX - PW,Global Equity,AssetSubClass,Equity,0,20,0,IPC-PW-CR-ALL-TX,Core - All Equity - Taxable,,,,,,
+9999-04-1/4,PW-POL-CR-ALL-TX,All Equity Core TX - PW,High Yield,AssetSubClass,Fixed Income,0,0,0,IPC-PW-CR-ALL-TX,Core - All Equity - Taxable,,,,,,
+9999-04-1/4,PW-POL-CR-ALL-TX,All Equity Core TX - PW,International,AssetSubClass,Equity,0,40,19.8,IPC-PW-CR-ALL-TX,Core - All Equity - Taxable,International,AssetSubClass,Equity,0,100,17.3251
+9999-04-1/4,PW-POL-CR-ALL-TX,All Equity Core TX - PW,Other,AssetSubClass,Alternatives & Other,0,10,0,IPC-PW-CR-ALL-TX,Core - All Equity - Taxable,,,,,,
+9999-04-1/4,PW-POL-CR-ALL-TX,All Equity Core TX - PW,Other Equity,AssetSubClass,Equity,0,20,0,IPC-PW-CR-ALL-TX,Core - All Equity - Taxable,,,,,,
+9999-04-1/4,PW-POL-CR-ALL-TX,All Equity Core TX - PW,Private Investments,AssetSubClass,Alternatives & Other,0,0,0,IPC-PW-CR-ALL-TX,Core - All Equity - Taxable,,,,,,
+9999-04-1/4,PW-POL-CR-ALL-TX,All Equity Core TX - PW,Real Assets,AssetSubClass,Alternatives & Other,0,0,0,IPC-PW-CR-ALL-TX,Core - All Equity - Taxable,,,,,,
+9999-04-1/4,PW-POL-CR-ALL-TX,All Equity Core TX - PW,TIPS,AssetSubClass,Fixed Income,0,0,0,IPC-PW-CR-ALL-TX,Core - All Equity - Taxable,,,,,,
+9999-04-1/4,PW-POL-CR-ALL-TX,All Equity Core TX - PW,U.S. Large Cap,AssetSubClass,Equity,44.5,90,69.3,IPC-PW-CR-ALL-TX,Core - All Equity - Taxable,U.S. Large Cap,AssetSubClass,Equity,0,100,69.3
+9999-04-1/4,PW-POL-CR-ALL-TX,All Equity Core TX - PW,U.S. Small Cap,AssetSubClass,Equity,0,30,9.9,IPC-PW-CR-ALL-TX,Core - All Equity - Taxable,U.S. Small Cap,AssetSubClass,Equity,0,100,12.375
+9999-04-1/4,PW-POL-CR-ALL-TX,All Equity Core TX - PW,Unconstrained and Other,AssetSubClass,Fixed Income,0,0,0,IPC-PW-CR-ALL-TX,Core - All Equity - Taxable,,,,,,
+9999-05-1/5,PW-POL-CR-GWI-TX,Growth with Income Core TX - PW,Absolute Return,AssetSubClass,Alternatives & Other,0,0,0,IPC-PW-CR-GWI-TX,Core - Growth w/ Income - Taxable,,,,,,
+9999-05-1/5,PW-POL-CR-GWI-TX,Growth with Income Core TX - PW,Alternatives & Other,AssetClass,,0,0,0,IPC-PW-CR-GWI-TX,Core - Growth w/ Income - Taxable,,,,,,
+9999-05-1/5,PW-POL-CR-GWI-TX,Growth with Income Core TX - PW,Cash,AssetClass,,0,20,3,IPC-PW-CR-GWI-TX,Core - Growth w/ Income - Taxable,Cash,AssetClass,,0,100,3
+9999-05-1/5,PW-POL-CR-GWI-TX,Growth with Income Core TX - PW,Cash,AssetSubClass,Cash,0,13,3,IPC-PW-CR-GWI-TX,Core - Growth w/ Income - Taxable,Cash,AssetSubClass,Cash,0,100,3
+9999-05-1/5,PW-POL-CR-GWI-TX,Growth with Income Core TX - PW,Core,AssetSubClass,Fixed Income,27,47,37,IPC-PW-CR-GWI-TX,Core - Growth w/ Income - Taxable,Core,AssetSubClass,Fixed Income,0,100,40
+9999-05-1/5,PW-POL-CR-GWI-TX,Growth with Income Core TX - PW,Equity,AssetClass,,45,75,60,IPC-PW-CR-GWI-TX,Core - Growth w/ Income - Taxable,Equity,AssetClass,,0,100,57.0001
+9999-05-1/5,PW-POL-CR-GWI-TX,Growth with Income Core TX - PW,Fixed Income,AssetClass,,22,52,37,IPC-PW-CR-GWI-TX,Core - Growth w/ Income - Taxable,Fixed Income,AssetClass,,0,100,40
+9999-05-1/5,PW-POL-CR-GWI-TX,Growth with Income Core TX - PW,Global,AssetSubClass,Fixed Income,0,0,0,IPC-PW-CR-GWI-TX,Core - Growth w/ Income - Taxable,,,,,,
+9999-05-1/5,PW-POL-CR-GWI-TX,Growth with Income Core TX - PW,Global Equity,AssetSubClass,Equity,0,14,0,IPC-PW-CR-GWI-TX,Core - Growth w/ Income - Taxable,,,,,,
+9999-05-1/5,PW-POL-CR-GWI-TX,Growth with Income Core TX - PW,High Yield,AssetSubClass,Fixed Income,0,0,0,IPC-PW-CR-GWI-TX,Core - Growth w/ Income - Taxable,,,,,,
+9999-05-1/5,PW-POL-CR-GWI-TX,Growth with Income Core TX - PW,International,AssetSubClass,Equity,0,28,12,IPC-PW-CR-GWI-TX,Core - Growth w/ Income - Taxable,International,AssetSubClass,Equity,0,100,9.9751
+9999-05-1/5,PW-POL-CR-GWI-TX,Growth with Income Core TX - PW,Other,AssetSubClass,Alternatives & Other,0,10,0,IPC-PW-CR-GWI-TX,Core - Growth w/ Income - Taxable,,,,,,
+9999-05-1/5,PW-POL-CR-GWI-TX,Growth with Income Core TX - PW,Other Equity,AssetSubClass,Equity,0,14,0,IPC-PW-CR-GWI-TX,Core - Growth w/ Income - Taxable,,,,,,
+9999-05-1/5,PW-POL-CR-GWI-TX,Growth with Income Core TX - PW,Private Investments,AssetSubClass,Alternatives & Other,0,0,0,IPC-PW-CR-GWI-TX,Core - Growth w/ Income - Taxable,,,,,,
+9999-05-1/5,PW-POL-CR-GWI-TX,Growth with Income Core TX - PW,Real Assets,AssetSubClass,Alternatives & Other,0,0,0,IPC-PW-CR-GWI-TX,Core - Growth w/ Income - Taxable,,,,,,
+9999-05-1/5,PW-POL-CR-GWI-TX,Growth with Income Core TX - PW,TIPS,AssetSubClass,Fixed Income,0,0,0,IPC-PW-CR-GWI-TX,Core - Growth w/ Income - Taxable,,,,,,
+9999-05-1/5,PW-POL-CR-GWI-TX,Growth with Income Core TX - PW,U.S. Large Cap,AssetSubClass,Equity,25,63,42,IPC-PW-CR-GWI-TX,Core - Growth w/ Income - Taxable,U.S. Large Cap,AssetSubClass,Equity,0,100,39.9
+9999-05-1/5,PW-POL-CR-GWI-TX,Growth with Income Core TX - PW,U.S. Small Cap,AssetSubClass,Equity,0,21,6,IPC-PW-CR-GWI-TX,Core - Growth w/ Income - Taxable,U.S. Small Cap,AssetSubClass,Equity,0,100,7.125
+9999-05-1/5,PW-POL-CR-GWI-TX,Growth with Income Core TX - PW,Unconstrained and Other,AssetSubClass,Fixed Income,0,0,0,IPC-PW-CR-GWI-TX,Core - Growth w/ Income - Taxable,,,,,,
+9999-06-1/6,PW-POL-CE-GMI-TX,Growth with Moderate Income Core Enhanced TX - PW,Absolute Return,AssetSubClass,Alternatives & Other,0,15,5,IPC-PW-CE-GMI-TX,Enh Core Plus - Growth w/ Mod Income - Taxable,Absolute Return,AssetSubClass,Alternatives & Other,0,100,5
+9999-06-1/6,PW-POL-CE-GMI-TX,Growth with Moderate Income Core Enhanced TX - PW,Alternatives & Other,AssetClass,,0,25,10,IPC-PW-CE-GMI-TX,Enh Core Plus - Growth w/ Mod Income - Taxable,Alternatives & Other,AssetClass,,0,100,10
+9999-06-1/6,PW-POL-CE-GMI-TX,Growth with Moderate Income Core Enhanced TX - PW,Cash,AssetClass,,0,20,3,IPC-PW-CE-GMI-TX,Enh Core Plus - Growth w/ Mod Income - Taxable,Cash,AssetClass,,0,100,3
+9999-06-1/6,PW-POL-CE-GMI-TX,Growth with Moderate Income Core Enhanced TX - PW,Cash,AssetSubClass,Cash,0,13,3,IPC-PW-CE-GMI-TX,Enh Core Plus - Growth w/ Mod Income - Taxable,Cash,AssetSubClass,Cash,0,100,3
+9999-06-1/6,PW-POL-CE-GMI-TX,Growth with Moderate Income Core Enhanced TX - PW,Core,AssetSubClass,Fixed Income,3.5,27,13.6,IPC-PW-CE-GMI-TX,Enh Core Plus - Growth w/ Mod Income - Taxable,Core,AssetSubClass,Fixed Income,0,100,15.1
+9999-06-1/6,PW-POL-CE-GMI-TX,Growth with Moderate Income Core Enhanced TX - PW,Equity,AssetClass,,55,85,70,IPC-PW-CE-GMI-TX,Enh Core Plus - Growth w/ Mod Income - Taxable,Equity,AssetClass,,0,100,67.0001
+9999-06-1/6,PW-POL-CE-GMI-TX,Growth with Moderate Income Core Enhanced TX - PW,Fixed Income,AssetClass,,2,32,17,IPC-PW-CE-GMI-TX,Enh Core Plus - Growth w/ Mod Income - Taxable,Fixed Income,AssetClass,,0,100,20
+9999-06-1/6,PW-POL-CE-GMI-TX,Growth with Moderate Income Core Enhanced TX - PW,Global,AssetSubClass,Fixed Income,0,5.4,0,IPC-PW-CE-GMI-TX,Enh Core Plus - Growth w/ Mod Income - Taxable,,,,,,
+9999-06-1/6,PW-POL-CE-GMI-TX,Growth with Moderate Income Core Enhanced TX - PW,Global Equity,AssetSubClass,Equity,0,16,0,IPC-PW-CE-GMI-TX,Enh Core Plus - Growth w/ Mod Income - Taxable,,,,,,
+9999-06-1/6,PW-POL-CE-GMI-TX,Growth with Moderate Income Core Enhanced TX - PW,High Yield,AssetSubClass,Fixed Income,0,10.8,3.4,IPC-PW-CE-GMI-TX,Enh Core Plus - Growth w/ Mod Income - Taxable,High Yield,AssetSubClass,Fixed Income,0,100,3.4
+9999-06-1/6,PW-POL-CE-GMI-TX,Growth with Moderate Income Core Enhanced TX - PW,International,AssetSubClass,Equity,6,40,21,IPC-PW-CE-GMI-TX,Enh Core Plus - Growth w/ Mod Income - Taxable,International,AssetSubClass,Equity,0,100,18.4251
+9999-06-1/6,PW-POL-CE-GMI-TX,Growth with Moderate Income Core Enhanced TX - PW,Other,AssetSubClass,Alternatives & Other,0,10,0,IPC-PW-CE-GMI-TX,Enh Core Plus - Growth w/ Mod Income - Taxable,,,,,,
+9999-06-1/6,PW-POL-CE-GMI-TX,Growth with Moderate Income Core Enhanced TX - PW,Other Equity,AssetSubClass,Equity,0,16,0,IPC-PW-CE-GMI-TX,Enh Core Plus - Growth w/ Mod Income - Taxable,,,,,,
+9999-06-1/6,PW-POL-CE-GMI-TX,Growth with Moderate Income Core Enhanced TX - PW,Private Investments,AssetSubClass,Alternatives & Other,0,0,0,IPC-PW-CE-GMI-TX,Enh Core Plus - Growth w/ Mod Income - Taxable,,,,,,
+9999-06-1/6,PW-POL-CE-GMI-TX,Growth with Moderate Income Core Enhanced TX - PW,Real Assets,AssetSubClass,Alternatives & Other,0,15,5,IPC-PW-CE-GMI-TX,Enh Core Plus - Growth w/ Mod Income - Taxable,Real Assets,AssetSubClass,Alternatives & Other,0,100,5
+9999-06-1/6,PW-POL-CE-GMI-TX,Growth with Moderate Income Core Enhanced TX - PW,TIPS,AssetSubClass,Fixed Income,0,5.4,0,IPC-PW-CE-GMI-TX,Enh Core Plus - Growth w/ Mod Income - Taxable,,,,,,
+9999-06-1/6,PW-POL-CE-GMI-TX,Growth with Moderate Income Core Enhanced TX - PW,U.S. Large Cap,AssetSubClass,Equity,24,64,42,IPC-PW-CE-GMI-TX,Enh Core Plus - Growth w/ Mod Income - Taxable,U.S. Large Cap,AssetSubClass,Equity,0,100,40.2
+9999-06-1/6,PW-POL-CE-GMI-TX,Growth with Moderate Income Core Enhanced TX - PW,U.S. Small Cap,AssetSubClass,Equity,0,24,7,IPC-PW-CE-GMI-TX,Enh Core Plus - Growth w/ Mod Income - Taxable,U.S. Small Cap,AssetSubClass,Equity,0,100,8.375
+9999-06-1/6,PW-POL-CE-GMI-TX,Growth with Moderate Income Core Enhanced TX - PW,Unconstrained and Other,AssetSubClass,Fixed Income,0,5.4,0,IPC-PW-CE-GMI-TX,Enh Core Plus - Growth w/ Mod Income - Taxable,Unconstrained and Other,AssetSubClass,Fixed Income,0,100,1.5
