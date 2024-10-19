@@ -1,0 +1,59 @@
+{
+  "configurations": [
+    {
+      "name": "THIS:Python",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${file}",
+      "console": "integratedTerminal",
+      "justMyCode": true
+    },
+    {
+      "name": "THIS:Flask",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "flask",
+      "justMyCode": true,
+      "env": {
+        "FLASK_APP": "${file}",
+        "FLASK_ENV": "development",
+        "FLASK_DEBUG": "1"
+      },
+      "args": ["run", "--port", "5000"],
+      "jinja": true
+    },
+    {
+      "name": "THIS:Streamlit",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "streamlit",
+      "args": ["run", "${file}", "--server.port", "5011"],
+      "justMyCode": true,
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "G-Cloud",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "streamlit",
+      "args": ["run", "app.py", "--server.port", "5010"],
+      "justMyCode": true,
+      "console": "integratedTerminal"
+    },
+
+    {
+      "name": "MyTech:Quart",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "/Users/michasmi/code/scripts/_live/000_mytech_quart.py",
+      "console": "integratedTerminal",
+      "env": {
+        "QUART_APP": "quart-app",
+        "QUART_ENV": "development",
+        "LOG_FOLDER": "logs"
+      },
+      "args": ["run", "--host", "127.0.0.1", "--port", "4001", "--reload"],
+      "justMyCode": true
+    }
+  ]
+}

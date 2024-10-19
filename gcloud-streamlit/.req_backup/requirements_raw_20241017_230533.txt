@@ -1,0 +1,230 @@
+### Web Development & API
+# flask
+# Flask-APScheduler
+# quart
+httpx
+aiohttp
+# aiohttp-wsgi
+requests
+# python-dotenv
+ics
+# flask-async
+# chainlit
+# websockets
+
+# google cloud
+firebase-admin
+google-cloud-firestore
+google-generativeai
+google-cloud-storage  # Optional
+googlesearch-python
+google-api-python-client
+google-cloud-secret-manager
+streamlit-google-auth
+
+#msft / azure
+msal
+
+#Python Utilities
+# ptvsd (Debugging)
+# yarl (URL parsing)
+# zipp (ZIP archive handling)
+# wcwidth (Unicode character width)
+# tqdm (Progress bar)
+
+### Databases & ORMs
+psycopg2-binary
+# sqlalchemy
+asyncpg
+# chromadb
+# notion
+# notion-client
+
+# azure-storage-blob
+# azure-storage-blob[aio]
+# azure-data-tables
+# azure-data-tables[aio]
+# pinecone-client
+
+
+### AI & Machine Learning
+openai
+# ollama
+
+# torch
+# tensorflow
+# tf-keras
+# flax
+# spacy
+# nltk
+# transformers
+# datasets
+# gpt4all
+# openai-whisper
+# sentence-transformers
+# fastembed
+# ctransformers
+
+
+### Data Manipulation & Analysis
+numpy
+pandas
+matplotlib
+sympy
+tqdm
+dataclasses
+dataclasses-json
+chardet
+# ydata-profiling
+# seaborn
+
+### Financial Data
+# nasdaq-data-link
+# quandl
+# finnhub-python
+# plaid-python
+# yfinance
+
+### Document & Text Processing
+pdf2image
+pdfminer.six
+pytesseract
+pypdf2
+pdfplumber
+python-docx
+python-pptx
+openpyxl
+html2text
+tldextract
+titlecase
+pptx2md
+reportlab
+# pymupdf
+
+### Asynchronous & Parallel Processing
+asyncio
+aiofiles
+asyncpg
+nest-asyncio
+
+### Image Processing
+pillow
+opencv-python
+imagehash
+scikit-image
+
+# Video Processing
+pytube
+# youtube_dl
+
+### Scraping & Web Automation
+beautifulsoup4
+playwright
+
+# selenium
+# chrome-cookiejar
+# pyppeteer
+# duckduckgo-search
+
+### LangChain Ecosystem
+# langchain==0.0.314
+
+# langchain
+# langchainhub
+# langchain-community
+# langsmith
+# langchain_openai
+# langchain_community
+
+### Others
+ipython
+timedelta
+setproctitle
+nats-py
+
+# Search Engines
+
+### Audio Processing
+# pyaudio
+# pydub
+# mutagen
+# sounddevice
+
+### Natural Language Processing
+# tiktoken
+
+### Cloud Services
+
+# azure-identity
+# azure-cognitiveservices-speech
+
+
+### Data Generation & Manipulation
+# faker
+# aenum
+
+### Speech Recognition
+# deepgram-sdk
+# pyaudio
+# sounddevice==0.4.7
+# numpy==2.0.1
+
+### Apple Development
+# pyobjc
+
+# Streamlit 
+# spacy-streamlit # Streamlit components for spaCy
+streamlit
+watchdog
+
+streamlit-aggrid
+streamlit-audiorec
+# streamlit_extras
+# streamlit-elements
+# streamlit-card
+# streamlit-audiorec
+
+
+# streamlit-option-menu
+# streamlit-code-editor
+# streamlit-monaco
+# streamlit-chat 
+# streamlit-ace # Streaml
+# streamlit-components # Streamlit component for rendering HTML elements
+# streamlit-text-labeler # Streamlit component for labeling text
+# streamlit-pandas-profiling # Streamlit component for rendering Pandas Profiling
+# streamlit-wordcloud
+# streamlit-excel-table
+# streamlit-tags
+# streamlit-tree-select
+# streamlit-modal
+# streamlit-labelstudio
+# st-material-table
+
+
+#Streamlit test projects
+langchain
+openai
+pandasai
+pdfplumber
+pypdf
+streamlit
+streamlit-chat
+tiktoken
+youtube-transcript-api
+faiss-cpu
+pinecone_client
+unstructured
+unstructured[pdf]
+chromadb
+streamlit-pills
+llama-index
+llama-hub
+requests
+scikit-learn
+numpy
+pycryptodome
+boto3
+redis
+retry
+webdriver-manager
