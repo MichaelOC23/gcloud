@@ -8,6 +8,7 @@ gcloud-gmtc/*_venv/
 gcloud-streamlit/*_venv/
 gcloud-streamlit/gcloud-streamlit_venv/*
 gcloud-gmtc/gcloud-gmtc_venv/*
+gcloud_venv/*
 data/nasdaq/
 *_venv*
 *_ScriptOutput/*
