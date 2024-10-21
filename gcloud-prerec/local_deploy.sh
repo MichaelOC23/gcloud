@@ -5,8 +5,6 @@ IMAGE_NAME="gcloud-prerec"
 CONTAINER_NAME="gcloud-prerec"
 PORT="5020"
 
-
-
 # Check if the container is running
 if [ "$(docker ps -q -f name=$CONTAINER_NAME)" ]; then
     echo "Stopping running container $CONTAINER_NAME..."
@@ -48,6 +46,7 @@ docker run -d \
     -e REDIRECT_URI="http://localhost:${PORT}/" \
     -e DEEPGRAM_API_KEY="${DEEPGRAM_API_KEY}" \
     -e GOOGLE_API_KEY="${GOOGLE_API_KEY}" \
+    --restart always \
     -p "${PORT}:${PORT}" \
     $IMAGE_NAME
 

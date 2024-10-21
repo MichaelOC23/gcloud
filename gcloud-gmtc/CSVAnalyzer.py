@@ -41,6 +41,7 @@ def analyze_csv(csv_path):
     st.session_state['ENCODING'] = detect_encoding(csv_path)
     m1.metric("Encoding", st.session_state['ENCODING']) 
     df = create_typed_df(csv_path, st.session_state['ENCODING'], 50)
+    
     st.session_state["DF_OF_CSV"] = df
     col_count = len(df.columns)
     row_count= df.shape[0]
@@ -52,8 +53,17 @@ def analyze_csv(csv_path):
     st.divider()
     
     st.session_state["COLUMN_LIST"] = st.session_state["DF_OF_CSV"].columns.tolist()
+    col_dict = {}
     with st.expander("Column List"):
-        st.table(st.session_state["COLUMN_LIST"])
+        for col in st.session_state['COLUMN_LIST']:
+            f = df[col]
+            col_dict[col] = {
+            'type': f.dtype,
+            'unique values': len(f.unique()),
+            'examples': f.sample().values[0],
+            'length': len(f),
+            }
+        st.dataframe(col_dict)
     
     # Check for duplicate headers
     duplicates = set()

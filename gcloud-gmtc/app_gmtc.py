@@ -13,6 +13,7 @@ from st_aggrid import AgGrid, GridOptionsBuilder, GridUpdateMode, DataReturnMode
 
 st.session_state['devmode']=True
 default_col_config = "gmtc_column_configuration.json"
+numeric_field_list = ['marketvalue', 'accruedintb', 'acquisitionunitcost', 'amortization', 'bookvalue', 'estincomeb', 'taxcost', 'unrealgl', 'unreallongtermcapgl', 'unrealshorttermcapgl' ]
 
 
 
@@ -32,8 +33,12 @@ def main():
     clear_filter_button = fcol5.button("Clear", "ClearFilterButton", type='secondary',use_container_width=True)
     
     pg = st.navigation([
+        "Holdings":[
         st.Page(display_holdings, title= "Holdings All Accounts", url_path='holdings' ),
-        st.Page(display_accounts_by_asset_class, title= "Asset Class by Account", url_path='display_accounts_by_asset_class'),
+        ],
+        "Other":[]
+        st.Page(display_accounts_by_asset_class, title= "Accounts by Asset Class", url_path='display_accounts_by_asset_class'),
+        # st.Page(display_accounts_by_asset_class, title= "Asset Class by Account", url_path='display_accounts_by_asset_class'),
         st.Page(display_accounts_by_sub_asset_class, title= "Asset Class by Sub Account", url_path='display_accounts_by_sub_asset_class'),
         st.Page(display_team, title= "Teams", url_path='display_team'),
         st.Page(display_account_transactions, title= "Transactions", url_path='display_account_transactions'),
@@ -42,9 +47,9 @@ def main():
         st.Page(display_account_groups, title= "Account Groups", url_path='display_account_groups'),
         st.Page(display_account_employees, title= "Employees", url_path='display_account_employees'),
         st.Page(display_colored_grid, title= "123", url_path='display_colored_grid'),
-        # st.Page(123, title= "123", url_path='123'),
+        
         st.Page("CSVAnalyzer.py", title="CSV Analyzer"),
-        st.Page("pandas-cheat-sheet.py", title="Pandas")
+        st.Page("pandas-cheat-sheet.py", title="Pandas")]
     ])
     
     pg.run()
@@ -225,24 +230,24 @@ class gmtc_data:
         
         
         holdings_df = self.dataframes.get('account_holdings.csv')
-        print(f"Holding Count: {holdings_df.shape[0]}")
+        # print(f"Holding Count: {holdings_df.shape[0]}")
         
         # Merrge Account Portfolios in
         portfolios_df = self.dataframes.get('account_portfolios.csv')
         holdings_portfolio_df = pd.merge(holdings_df, portfolios_df,  on=['portnum', 'accountnum'], how='outer')    
-        print(f"Holding Count: {holdings_portfolio_df.shape[0]}")
+        # print(f"Holding Count: {holdings_portfolio_df.shape[0]}")
         
         # Merge Wealth Advisors
         holdings_portfolio_wa_df = pd.merge(holdings_portfolio_df, wealth_advisor_df,  left_on=['accountnum'], right_on=['gpacct'], how='inner')    
-        print(f"Holding Count: {holdings_portfolio_wa_df.shape[0]}")
+        # print(f"Holding Count: {holdings_portfolio_wa_df.shape[0]}")
         
         # Merge Portfolio Managers
         holdings_portfolio_wa_pm_df = pd.merge(holdings_portfolio_wa_df, portfolio_manager_df,  left_on=['accountnum'], right_on=['gpacct'], how='inner')    
-        print(f"Holding Count: {holdings_portfolio_wa_pm_df.shape[0]}")
+        # print(f"Holding Count: {holdings_portfolio_wa_pm_df.shape[0]}")
         
         # Merge Wealth Strategists
         holdings_portfolio_wa_pm_ws_df = pd.merge(holdings_portfolio_wa_pm_df, wealth_strategists_df,  left_on=['accountnum'], right_on=['gpacct'], how='inner')    
-        print(f"Holding Count: {holdings_portfolio_wa_pm_ws_df.shape[0]}")
+        # print(f"Holding Count: {holdings_portfolio_wa_pm_ws_df.shape[0]}")
         
         self.dataframes['holdings_wide'] = holdings_portfolio_wa_pm_ws_df
         self.dataframes['account_list'] = pd.DataFrame(holdings_portfolio_wa_pm_ws_df['accountnum'].unique(), columns=['accountnum'])
@@ -340,56 +345,27 @@ class create_new_grid():
         builder.configure_pagination(self.enable_pagination)
         builder.configure_side_bar(self.show_filters, self.show_columns, self.defaultToolPanel)  # Enable the sidebar with default options
         builder.configure_auto_height(autoHeight=True)
-        # for col in dataframe.select_dtypes(include=[float, int]).columns:
-        #     builder.configure_column(col, type=["numericColumn", "customNumericFormat"], precision=2, valueFormatter="x.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })", cellStyle={'text-align': 'right'})
         
         # Add enablePivot option to column definitions
         gridoptions = builder.build()
         gridoptions['enableCharts'] = True  
         gridoptions['enableRangeSelection'] = True
         
-        if print_headers:
-            for col in gridoptions['columnDefs']:
-                print(col['headerName'])
-        
-        # valueFormatter = "function(params) { if (!params.value || params.value === '' || params.value === '1900-01-01T00:00:00') { return ''; } else { const date = new Date(params.value); if (isNaN(date)) { return ''; } else { return date.toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' }); } } }",
-
- 
-        
-        
         new_col_defs = []
         for col_list_item in gridoptions['columnDefs']:
-            # !FIXME: Figure out Col Name Override
-            # col_list_item['headerName']= col['headerName']            
             col_list_item['field'] =  col_list_item['headerName']
-            col_list_item['filter'] = filter
+            col_list_item['filter'] = None
             col_list_item['resizable'] = self.resizable
             col_list_item['sortable'] = self.sortable
-            # col_list_item['minWidth'] = self.minWidth # Minimum width in pixels; other values are integers
-            
-            # col_list_item["minWidth"] = self.minWidth
-            col_list_item['editable'] = self.editable # Minimum width in pixels; other values are integers
-            # col_list_item['maxWidth'] = self.maxwidth  # Maximum width in pixels; other values are integers
+            col_list_item['editable'] = self.editable # Minimum width in pixels; other values are integers            
             col_list_item['flex'] = 1  # Flex sizing; other values are integers
-            
-            #? No Effect
-            # col_list_item['autoSizeStrategy'] = 'sizeColumnsToContentStrategy'
-            
-            # Check if 'type' key exists in col
-            col_list_item['type'] = [] # 
-            # print(f"dtype of {col_list_item['headerName']}: {dataframe[col_list_item['headerName']].dtype}")
-           
-            
 
             # Editing
-            col_list_item['editable'] = True  # False
             col_list_item['cellEditor'] = 'agTextCellEditor'  # 'agSelectCellEditor', 'agRichSelectCellEditor', 'agLargeTextCellEditor', custom editors
 
             # Sorting & Filtering
-            col_list_item['sortable'] = True  # False
             col_list_item['sort'] = None  # 'asc', 'desc', None
             col_list_item['filter'] = True  # False, or a specific filter type like 'agNumberColumnFilter', 'agTextColumnFilter'
-            # col_list_item['filterParams'] = {}  # Parameters for the filter, depends on the filter type
 
             # Grouping & Aggregation
             col_list_item['groupable'] = True  # False
@@ -398,21 +374,17 @@ class create_new_grid():
             # col_list_item['groupHideOpenParents'] = True 
             col_list_item['rowGroupPanelShow'] = True
             
-            if pd.api.types.is_numeric_dtype(arr_or_dtype=dataframe[col_list_item['headerName']]):
-                # col_list_item['valueFormatter'] = "function(params) { return '$' + params.value.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 }); }"
-                col_list_item['cellStyle'] = {'textAlign': 'right',}
+            if pd.api.types.is_numeric_dtype(dataframe[col_list_item['field']]):
+                col_list_item['cellStyle'] = {'textAlign': 'right'}
                 col_list_item['headerClass'] = 'ag-right-aligned-header'
-                # headerClass='text-right'
-                                            #   'color': lambda params: 'red' if params.value < 0 else 'black', 'fontSize': '12px'}
+                col_list_item['precision'] = 2
+                col_list_item['valueFormatter'] = "(x === undefined || x === null) ? '' : Number(x).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})"
                 col_list_item['aggFunc'] = 'sum' # Set aggregation function to sum for numeric columns
             
             # Enable the grouping for spcified fields
             if col_list_item['field'] in fields_to_group_by:
                 # Row Grouping
                 group_index = fields_to_group_by.index(col_list_item['field'])
-                
-                
-                
                 col_list_item['rowGroup'] = True  # True, enables row grouping
                 col_list_item['rowGroupIndex'] = group_index  # Index for row grouping; other values are integers
                 col_list_item['showRowGroup']=True
@@ -420,33 +392,17 @@ class create_new_grid():
                                                     # 'singleColumn': single group column automatically added by the grid.
                                                     # 'multipleColumns': a group column per row group is added automatically.
                                                     # 'groupRows': group rows are automatically added instead of group columns.
-                # col_list_item['pinned'] = 'left'  # 'left', 'right', None for not pinned
-                
-                if not pd.api.types.is_numeric_dtype(dataframe[col_list_item['headerName']]):
-                    col_list_item['aggFunc'] = 'first'  # 'min', 'max', 'avg', 'count', custom aggregation functions
-                
                 
             else: 
                 col_list_item['rowGroup'] = False  # True, enables row grouping
                 col_list_item['rowGroupIndex'] = None  # Index for row grouping; other values are integers
                 col_list_item['showRowGroup']=False
                 col_list_item['pinned'] = None  # 'left', 'right', None for not pinned
-            
-
-            
-            if pd.api.types.is_datetime64_any_dtype(dataframe[col_list_item['headerName']]):
-                pass
-                # col_list_item['type'] = ["dateColumnFilter", "customDateTimeFormat"]
-                # col_list_item['valueFormatter'] = valueFormatter
-                # "(new Date(value)).toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric'  })"
-
-
                 
             col_list_item['enablePivot'] = True  # False
             col_list_item['pivot'] = False  # True, enables pivoting
             col_list_item['pivotIndex'] = None  # Index for pivoting; other values are integers
-                
-            
+
             
             # Column Behavior
             col_list_item['checkboxSelection'] = False  # True, allows the column to have a checkbox for selection
@@ -456,6 +412,7 @@ class create_new_grid():
             
 
             # Pinning
+            # col_list_item['pinned'] = 'left'  # 'left', 'right', None for not pinned
             col_list_item['lockPinned'] = False  # True, locks the column pinning (left or right)
 
             # Tooltip
@@ -465,7 +422,6 @@ class create_new_grid():
             # Column Visibility
             col_list_item['hide'] = self.hide_by_default  # True to hide the column
 
-            
             col_list_item['headerTooltip'] = None  # Tooltip for the column header; other values are strings
             col_list_item['headerCheckboxSelection'] = False  # True, allows a checkbox in the header for selecting all rows
             col_list_item['headerCheckboxSelectionFilteredOnly'] = False  # True, only selects filtered rows
@@ -479,7 +435,8 @@ class create_new_grid():
                     for key in col_dict[col_list_item['field']].keys():
                         if key != 'type':
                             col_list_item[key] = col_dict[col_list_item['field']][key]
-            
+                    col_list_item['sortkey']= col_dict[col_list_item['field']].get('sortkey', 10000)
+
 
             if not col_list_item['hide']:
                 title_string = col_list_item['headerName']
@@ -487,11 +444,14 @@ class create_new_grid():
                 max_char_values = int(dataframe[field_string].astype(str).apply(len).max())
                 max_char = max(len(title_string), max_char_values)
                 col_list_item['minWidth'] = max(100, min(max_char*15, 200))
-                print(f"{col_list_item['headerName']}: {col_list_item['minWidth']}")
+                # print(f"{col_list_item['headerName']}: {col_list_item['minWidth']}")
             
             new_col_defs.append(col_list_item)
             # "cellStyle": {"textAlign": "right"},
-            
+        
+        with open(f"col_defs.json", 'w') as f:
+            json.dump(new_col_defs, f)
+        new_col_defs = sorted(new_col_defs, key=lambda x: x.get('sortkey', 10000))
 
         gridoptions['columnDefs'] = new_col_defs
         gridoptions['domLayout'] = 'normal'
@@ -532,23 +492,21 @@ class create_new_grid():
             print ('ERROR: No dataframe provided')
             return
         for col in dataframe.columns:
+            #Format the dates
             if pd.api.types.is_datetime64_any_dtype(dataframe[col]):
-                
                 # Convert the 'acquitiondate' column to datetime and format it as 'DD-MMM-YYYY'
                 dataframe[col] = pd.to_datetime(dataframe[col]).dt.strftime('%d %b %Y')
-
-                # Replace NaT values with an empty string
                 dataframe[col] = dataframe[col].fillna('')
-                
-                # dataframe[col] = dataframe[col].fillna(pd.to_datetime('1900-01-01'))
-                # dataframe[col] = dataframe[col].dt.strftime('%d %b %Y').fillna('')  # Format the date, fill NaT with empty string
-
+            elif pd.api.types.is_numeric_dtype(dataframe[col]):
+                dataframe[col] = dataframe[col].fillna(0)
+            else:
+                dataframe[col] = dataframe[col].fillna('')
 
         height = min(dataframe.shape[0]*40, height)
         if grid_options is None:
             grid_options = self.create_default_grid(dataframe=dataframe, fields_to_group_by=fields_to_group_by, col_dict = col_dict )
-            
-
+        
+        # sorted_holdings = dict(sorted(holdings['holdings'].items(), key=lambda x: x[1]['sortkey']))
 
         if title is not None and title != '':
             st.subheader(title, divider=True)
@@ -587,8 +545,8 @@ class create_new_grid():
                                                 'pinned': False,
                                                 'cellStyle':cellStyle_str
                         }
-        #     df_config_col.json(missing_columns)
-        st.write(grid_return.grid_options)
+        df_config_col.json(missing_columns)
+        grid_config_col.write(grid_return.grid_options)
 
 
             
@@ -606,21 +564,22 @@ class gmtc_menu:
 gmtc = gmtc_data()
 
 def display_holdings():
-    holdings_df = gmtc.dataframes.get('holdings_wide')
+    
+    holdings_df = gmtc.dataframes.get('account_holdings.csv')
     holdings_df_grid = create_new_grid(path_to_col_config='gmtc_column_configuration.json', enablePivot=False)
     holdings_df_grid.display_grid( holdings_df, title="Holdings (All Accounts)", col_dict_key='holdings')
     
 def display_accounts_by_asset_class():
     # # Accounts by Asset Class
     holdings_df1 = gmtc.dataframes.get('account_holdings.csv')
-    accounts_by_asset_class = holdings_df1.groupby(['accountnum', 'assetclass'])['marketvalue'].sum().reset_index()
+    accounts_by_asset_class = holdings_df1.groupby(['accountnum', 'assetclass'])[numeric_field_list].sum().reset_index()
     accounts_by_asset_class_grid = create_new_grid(path_to_col_config='gmtc_column_configuration.json', enablePivot=False)
-    accounts_by_asset_class_grid.display_grid( accounts_by_asset_class, title="Accounts by Asset Class")
+    accounts_by_asset_class_grid.display_grid( accounts_by_asset_class, title="Accounts by Asset Class",col_dict_key='holdings')
 
 def display_accounts_by_sub_asset_class():
     # # Accounts by Asset Class
     holdings_df1 = gmtc.dataframes.get('account_holdings.csv')
-    accounts_by_sub_asset_class = holdings_df1.groupby(['accountnum', 'assetsubclass'])['marketvalue'].sum().reset_index()
+    accounts_by_sub_asset_class = holdings_df1.groupby(['accountnum', 'assetsubclass'])['marketvalue', 'accruedintb', 'acquisitionunitcost', 'amortization', 'bookvalue', 'estincomeb', 'taxcost', 'unrealgl', 'unreallongtermcapgl', 'unrealshorttermcapgl' ].sum().reset_index()
     accounts_by_sub_asset_class_grid = create_new_grid(path_to_col_config='gmtc_column_configuration.json', enablePivot=False)
     accounts_by_sub_asset_class_grid.display_grid( accounts_by_sub_asset_class, title="Accounts by Sub Asset Class")
 
@@ -641,7 +600,7 @@ def display_team():
 
 def display_account_transactions():
     grid = create_new_grid(enablePivot=False)
-    grid.display_grid( gmtc.dataframes['account_transactions.csv'], title="Transactions")
+    grid.display_grid( gmtc.dataframes['account_transactions.csv'], title="Transactions",col_dict_key='transactions')
 
 def display_account_performance():
     grid = create_new_grid(enablePivot=False)
@@ -729,252 +688,3 @@ if __name__ == '__main__':
     main()
     
     
-    # Holdings
-      
-
-
-
-
-    
-    
-    
-    
-    # # Accounts by Sub Asset Class
-    # accounts_by_asset_class = holdings_df.groupby(['accountnum', 'assetclass'])['marketvalue'].sum().reset_index()
-    # accounts_by_asset_class_grid = create_new_grid(enablePivot=False)
-    # accounts_by_asset_class_grid.display_grid( accounts_by_asset_class, title="Accounts by Asset Class")
-    
-    
-    # accounts_by_sub_asset_class = menu.gmtc.dataframes.get('account_holdings.csv').groupby(['accountnum', 'assetclass'])['marketvalue'].sum().reset_index()
-
-    
-    # #Models
-    # asset_class_models =menu.gmtc.dataframes.get('account_models.csv')[menu.gmtc.dataframes.get('account_models.csv')['policyclasstype'] == 'AssetClass']
-    
-    
-    # sub_asset_class_models =menu.gmtc.dataframes.get('account_models.csv')[menu.gmtc.dataframes.get('account_models.csv')['policyclasstype'] == 'AssetSubClass']
-
-    # allocation_summary = pd.merge(accounts_by_asset_class, asset_class_models, 
-    #                                 left_on=['accountnum', 'assetclass'], 
-    #                                 right_on=['accountnum', 'policyassetclassifier'], 
-    #                             how='outer')
-    
-    
-    # asset_allocation_by_account = create_new_grid(enablePivot=False)
-    # # asset_allocation_by_account.display_grid( allocation_summary)
-    
-    
-    # for key in menu.gmtc.dataframes.keys():
-    #     # try:
-    #         name = key.replace('_', ' ').replace('account', '').strip().title()
-    #         grid = create_new_grid(enablePivot=False)
-    #         with st.expander(name, expanded=False):
-    #             grid.display_grid(menu.gmtc.dataframes[key])
-        
-
-
-
-
-
-
-
-
-# class gmtc_data():
-#     def __init__(self):
-#         self.account_holdings = None
-#         self.account_positions = None
-#         self.account_securities = None
-#         self.account_transactions = None
-#         self.account_performance = None
-#         self.account_models = None
-#         self.account_groups = None
-#         self.account_employees = None
-#         self.employee_account_coverage = None
-#         self.account_portfolios = None
-        
-#         self.load_all_data()
-     
-#     def load_all_data(self):
-#         start_time = time.time()
-#         with concurrent.futures.ProcessPoolExecutor() as executor:
-#             # Submit tasks to the ProcessPoolExecutor
-#             futures = {
-#                 'account_holdings': executor.submit(self.get_data, 'account_holdings.csv'),
-#                 'account_transactions': executor.submit(self.get_data, 'account_transactions.csv'),
-#                 'account_performance': executor.submit(self.get_data, 'account_performance.csv'),
-#                 'account_models': executor.submit(self.get_data, 'account_models.csv'),
-#                 'account_groups': executor.submit(self.get_data, 'account_groups.csv'),
-#                 'employees': executor.submit(self.get_data, 'account_employees.csv'),
-#                 'employee_account_coverage': executor.submit(self.get_data, 'employee_account_coverage.csv'),
-#                 'account_portfolios': executor.submit(self.get_data, 'account_portfolios.csv')
-#             }
-
-#             # Collect the results as they complete
-#             for key, future in futures.items():
-#                 setattr(self, key, future.result())
-
-#         # Create the security master
-#         smf_start_time = time.time()
-#         self.account_securities = self.account_holdings[['marketprice', 'issuename1', 'maturitydate', 'moodyrating',
-#                                                          'assetclass', 'assetsubclass', 'amortization', 'assetsector',
-#                                                          'expirationdate', 'cusip', 'ticker', 'eps', 'minsecclass',
-#                                                          'vchshortname', 'priceaspercent', 'gpemplid', 'sma',
-#                                                          'calldate', 'issuename2']]
-#         self.account_securities = self.account_securities.drop_duplicates()
-#         print(f"\033[1;96mTime to get Security Master: {time.time() - smf_start_time}\033[0m")
-#         print(f"\033[1;96mTime to get ALL FILES: {time.time() - start_time}\033[0m")
-    
-#     def get_data(self, filename):
-#         with open(f'gmtc/{filename}') as f:
-            
-#             start_time = time.time()
-            
-#             # Read the first line (header)
-#             header = f.readline().strip().split(',')
-            
-#             # Clean the header: lowercase and remove spaces
-#             clean_header = [col.strip().replace(' ', '_').lower() for col in header]
-
-#             # Load the rest of the file into a DataFrame using the cleaned header
-#             df = pd.read_csv(f, names=clean_header, dtype=str)
-            
-#             # Drop rows where all elements are NaN
-#             df = df.dropna(how='all')
-            
-#             # Remove \n from all fields in the DataFrame
-#             df = df.apply(lambda col: col.apply(lambda x: x.replace('\n', ' ').replace('\r', ' ') if isinstance(x, str) else x))
-            
-            
-            
-#             # Reset the index after dropping rows
-#             df = df.reset_index(drop=True)
-            
-#             cast_log = []
-#             df = self.inspect_and_cast(df, cast_log, filename)
-            
-#             with open(f'gmtc/{filename}.log', 'w') as f:
-#                 f.write('\n'.join(cast_log))
-            
-#             #! Custom Logic for gmtc files
-#             if 'portnum' in df.columns:
-#                 df['accountnum'] = df['portnum'].str.replace(r'\.\d+$', '', regex=True)
-            
-#             if 'holdings' in filename:
-#                 # Step 1: Create the 'secid' column with the value of 'ticker'
-#                 df['secid'] = df['ticker']
-
-#                 # Step 2: Where 'ticker' is empty/blank/null, set 'secid' to 'cusip'
-#                 df['secid'] = np.where(df['secid'].isnull() | df['secid'].str.strip().eq(''), df['cusip'], df['secid'])
-
-#                 # Step 3: Set any remaining blanks in 'secid' to 'USD'
-#                 df['secid'] = df['secid'].replace('', 'USD')
-#                 df['secid'] = df['secid'].fillna('USD')
-            
-#             print(f"\033[1;96mTime to get {filename}: {time.time() - start_time}\033[0m")
-#             return df 
-       
-#     def inspect_and_cast(self, df, cast_log = [], ref_name=''):
-        
-#         def is_numeric_or_empty(s):
-#             # Check if a column is entirely numeric or empty/NaN
-#             try:
-#                 s_float = pd.to_numeric(s, errors='coerce')
-#                 return s_float.notna() | s.isna()
-#             except ValueError:
-#                 return False
-
-#         def optimize_dataframe(df, max_rows=50):
-#             for col in df.columns:
-#                 # Limit the number of rows checked to max_rows
-#                 sample = df[col].iloc[:max_rows]
-
-#                 if 'targetmin' in col:
-#                     pass
-                
-#                 if is_numeric_or_empty(sample).all():  # Check if all values in the sample are numeric or empty
-#                     # Replace any empty strings or spaces with '0'
-#                     df[col] = df[col].replace(r'^\s*$', '0', regex=True)
-#                     df[col] = df[col].fillna('0')  # Replace NaN with '0'
-                    
-#                     # Attempt to convert the column to float
-#                     try:
-#                         df[col] = df[col].astype(float)
-#                         print(f"\033[0;32mSuccessfully converted  column '{ref_name} | {col}' numeric values.\033[0m")
-#                     except ValueError:
-#                         pass
-#                         print(f"Skipping conversion for column '{ref_name} | {col}' due to non-numeric values.")
-#                         continue
-#             return df
-            
-#         time_start = time.time()
-        
-#         #step 1: Convert all the numeric columns to float
-#         df = optimize_dataframe(df)
-#         # print(f"Time to clean numeric columns: {time.time() - time_start}")
-        
-#         # Step 2: Format the numeric columns with two decimal places and thousand separators
-#         for col in df.select_dtypes(include=[float, int]).columns:
-#             df[col] = df[col].apply(lambda x: "{:,.2f}".format(x) if pd.notnull(x) else x)
-#         # print(f"Time to format numeric columns: {time.time() - time_start}")
-        
-#         # Iterate over each column in the DataFrame
-#         for col in df.columns:
-#             if df[col].apply(self.is_date_or_empty).all():  # Check if all values are dates or empty
-#                 df[col] = pd.to_datetime(df[col], errors='coerce')  # Cast the column to datetime
-        
-#         # Fill NaN or NaT with empty string for non-numeric, non-date columns
-#         # Note that numeric columns are already converted to float and filled with '0'
-#         # So this will only affect non-numeric columns
-#         df[col] = df[col].fillna('')  
-        
-#         return df
- 
-#     def is_none_or_empty(self, df):
-#             resp = True
-#             try:
-#                 return df is None or df.empty
-#             except:
-#                 return resp
-   
-#     def is_null_or_empty(self, val):
-#         if pd.isnull(val):  # Check for NaN or None
-#             return True
-#         val_str = str(val).strip()  # Convert to string and strip whitespace
-#         if val_str == '':  # Check if it's empty after stripping
-#             return True
-        
-#         return False    
-        
-#     def is_numeric_or_empty(self, val):
-#         if pd.isnull(val):  # Check for NaN or None
-#             return True
-#         val_str = str(val).strip()  # Convert to string and strip whitespace
-#         if val_str == '':  # Check if it's empty after stripping
-#             return True
-#         try:
-#             float(val_str)  # Try to convert to float
-#             return True
-#         except ValueError:
-#             return False        
-
-#     def is_date_or_empty(self,val):
-#         if pd.isnull(val):  # Check for NaN or None
-#             return True
-#         val_str = str(val).strip()  # Convert to string and strip whitespace
-#         if val_str == '':  # Check if it's empty after stripping
-#             return True
-#         try:
-#             pd.to_datetime(val_str)  # Try to convert to datetime
-#             return True
-#         except (ValueError, TypeError):
-#             return False
-            
-#     def get_data_by_name(self, name):
-#         return getattr(self, name)
-    
-#     def get_all_data(self):
-#         all_dfs = []
-#         for attr in dir(self):
-#             if 'account' in attr and 'dtype' not in attr:
-#                 all_dfs.append([attr, getattr(self, attr)])
-#         return all_dfs

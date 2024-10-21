@@ -47,6 +47,7 @@ docker run -d \
     --env-file ./env_vars.env \
     -e GOOGLE_APPLICATION_CREDENTIALS="/app/key.json" \
     -e REDIRECT_URI="http://localhost:${PORT}/" \
+    --restart always \
     -p "${PORT}:${PORT}" \
     $IMAGE_NAME
 
