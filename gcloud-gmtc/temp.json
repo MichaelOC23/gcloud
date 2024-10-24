@@ -1,0 +1,607 @@
+{
+    "tradedate": {
+        "headerName": "Trade Date",
+        "type": "object",
+        "hide": false,
+        "aggFunc": "first",
+        "rowGroup": false,
+        "pinned": false,
+        "cellStyle": {
+            "textAlign": "right"
+        }
+    },
+    "settledate": {
+        "headerName": "Settle Date",
+        "type": "object",
+        "hide": false,
+        "aggFunc": "first",
+        "rowGroup": false,
+        "pinned": false,
+        "cellStyle": {
+            "textAlign": "right"
+        }
+    },
+    "portnum": {
+        "headerName": "Portfolio Number",
+        "type": "object",
+        "hide": false,
+        "aggFunc": "first",
+        "rowGroup": false,
+        "pinned": false,
+        "cellStyle": {
+            "textAlign": "right"
+        }
+    },
+    "shortname": {
+        "headerName": "Short Name",
+        "type": "object",
+        "hide": false,
+        "aggFunc": "first",
+        "rowGroup": false,
+        "pinned": false,
+        "cellStyle": {
+            "textAlign": "right"
+        }
+    },
+    "longname": {
+        "headerName": "Long Name",
+        "type": "object",
+        "hide": false,
+        "aggFunc": "first",
+        "rowGroup": false,
+        "pinned": false,
+        "cellStyle": {
+            "textAlign": "right"
+        }
+    },
+    "transcd": {
+        "headerName": "Transaction Code",
+        "type": "float64",
+        "hide": false,
+        "aggFunc": "sum",
+        "rowGroup": false,
+        "pinned": false,
+        "cellStyle": {
+            "textAlign": "right"
+        }
+    },
+    "chtrans_description": {
+        "headerName": "Transaction Type",
+        "type": "object",
+        "hide": false,
+        "aggFunc": "first",
+        "rowGroup": false,
+        "pinned": false,
+        "cellStyle": {
+            "textAlign": "right"
+        }
+    },
+    "cusip": {
+        "headerName": "Cusip",
+        "type": "object",
+        "hide": false,
+        "aggFunc": "first",
+        "rowGroup": false,
+        "pinned": false,
+        "cellStyle": {
+            "textAlign": "right"
+        }
+    },
+    "ticker": {
+        "headerName": "Ticker",
+        "type": "object",
+        "hide": false,
+        "aggFunc": "first",
+        "rowGroup": false,
+        "pinned": false,
+        "cellStyle": {
+            "textAlign": "right"
+        }
+    },
+    "units": {
+        "headerName": "Units",
+        "type": "float64",
+        "hide": false,
+        "aggFunc": "sum",
+        "rowGroup": false,
+        "pinned": false,
+        "cellStyle": {
+            "textAlign": "right"
+        }
+    },
+    "assetpriceb": {
+        "headerName": "Price",
+        "type": "float64",
+        "hide": false,
+        "aggFunc": "sum",
+        "rowGroup": false,
+        "pinned": false,
+        "cellStyle": {
+            "textAlign": "right"
+        }
+    },
+    "commissionsloc": {
+        "headerName": "Broker Commission",
+        "type": "float64",
+        "hide": false,
+        "aggFunc": "sum",
+        "rowGroup": false,
+        "pinned": false,
+        "cellStyle": {
+            "textAlign": "right"
+        }
+    },
+    "issuename1": {
+        "headerName": "Security Description",
+        "type": "object",
+        "hide": false,
+        "aggFunc": "first",
+        "rowGroup": false,
+        "pinned": false,
+        "cellStyle": {
+            "textAlign": "right"
+        }
+    },
+    "maturitydate": {
+        "headerName": "Maturity Date",
+        "type": "object",
+        "hide": false,
+        "aggFunc": "first",
+        "rowGroup": false,
+        "pinned": false,
+        "cellStyle": {
+            "textAlign": "right"
+        }
+    },
+    "moodyrating": {
+        "headerName": "Moody’s Rating",
+        "type": "object",
+        "hide": false,
+        "aggFunc": "first",
+        "rowGroup": false,
+        "pinned": false,
+        "cellStyle": {
+            "textAlign": "right"
+        }
+    },
+    "assetclass": {
+        "headerName": "Asset Class",
+        "type": "object",
+        "hide": false,
+        "aggFunc": "first",
+        "rowGroup": false,
+        "pinned": false,
+        "cellStyle": {
+            "textAlign": "right"
+        }
+    },
+    "assetsubclass": {
+        "headerName": "Asset Subclass",
+        "type": "object",
+        "hide": false,
+        "aggFunc": "first",
+        "rowGroup": false,
+        "pinned": false,
+        "cellStyle": {
+            "textAlign": "right"
+        }
+    },
+    "gldatebought": {
+        "headerName": "Original Tax Lot Date",
+        "type": "object",
+        "hide": false,
+        "aggFunc": "first",
+        "rowGroup": false,
+        "pinned": false,
+        "cellStyle": {
+            "textAlign": "right"
+        }
+    },
+    "glunitcostb": {
+        "headerName": "Average Unit Cost",
+        "type": "float64",
+        "hide": false,
+        "aggFunc": "sum",
+        "rowGroup": false,
+        "pinned": false,
+        "cellStyle": {
+            "textAlign": "right"
+        }
+    },
+    "longdescription": {
+        "headerName": "Transaction Comments",
+        "type": "object",
+        "hide": false,
+        "aggFunc": "first",
+        "rowGroup": false,
+        "pinned": false,
+        "cellStyle": {
+            "textAlign": "right"
+        }
+    },
+    "exdate": {
+        "headerName": "Ex-dividend Date",
+        "type": "object",
+        "hide": false,
+        "aggFunc": "first",
+        "rowGroup": false,
+        "pinned": false,
+        "cellStyle": {
+            "textAlign": "right"
+        }
+    },
+    "payabledate": {
+        "headerName": "Payable Date",
+        "type": "object",
+        "hide": false,
+        "aggFunc": "first",
+        "rowGroup": false,
+        "pinned": false,
+        "cellStyle": {
+            "textAlign": "right"
+        }
+    },
+    "txnmkvb": {
+        "headerName": "txnmkvb",
+        "type": "float64",
+        "hide": true,
+        "aggFunc": "sum",
+        "rowGroup": false,
+        "pinned": false,
+        "cellStyle": {
+            "textAlign": "right"
+        }
+    },
+    "longgl": {
+        "headerName": "Long-term Gain Loss",
+        "type": "float64",
+        "hide": false,
+        "aggFunc": "sum",
+        "rowGroup": false,
+        "pinned": false,
+        "cellStyle": {
+            "textAlign": "right"
+        }
+    },
+    "shortgl": {
+        "headerName": "Short-term Gain Loss",
+        "type": "float64",
+        "hide": false,
+        "aggFunc": "sum",
+        "rowGroup": false,
+        "pinned": false,
+        "cellStyle": {
+            "textAlign": "right"
+        }
+    },
+    "stlonggl": {
+        "headerName": "stlonggl",
+        "type": "float64",
+        "hide": true,
+        "aggFunc": "sum",
+        "rowGroup": false,
+        "pinned": false,
+        "cellStyle": {
+            "textAlign": "right"
+        }
+    },
+    "stshortgl": {
+        "headerName": "stshortgl",
+        "type": "float64",
+        "hide": true,
+        "aggFunc": "sum",
+        "rowGroup": false,
+        "pinned": false,
+        "cellStyle": {
+            "textAlign": "right"
+        }
+    },
+    "status": {
+        "headerName": "Status",
+        "type": "object",
+        "hide": false,
+        "aggFunc": "first",
+        "rowGroup": false,
+        "pinned": false,
+        "cellStyle": {
+            "textAlign": "right"
+        }
+    },
+    "recodedate": {
+        "headerName": "Recode Date",
+        "type": "object",
+        "hide": false,
+        "aggFunc": "first",
+        "rowGroup": false,
+        "pinned": false,
+        "cellStyle": {
+            "textAlign": "right"
+        }
+    },
+    "ratepershare": {
+        "headerName": "Rate Per Share",
+        "type": "float64",
+        "hide": false,
+        "aggFunc": "sum",
+        "rowGroup": false,
+        "pinned": false,
+        "cellStyle": {
+            "textAlign": "right"
+        }
+    },
+    "taxcd": {
+        "headerName": "Transaction Tax Code",
+        "type": "float64",
+        "hide": false,
+        "aggFunc": "sum",
+        "rowGroup": false,
+        "pinned": false,
+        "cellStyle": {
+            "textAlign": "right"
+        }
+    },
+    "taxcddesc": {
+        "headerName": "Transaction Tax Description",
+        "type": "object",
+        "hide": false,
+        "aggFunc": "first",
+        "rowGroup": false,
+        "pinned": false,
+        "cellStyle": {
+            "textAlign": "right"
+        }
+    },
+    "amortization": {
+        "headerName": "Amortization",
+        "type": "float64",
+        "hide": false,
+        "aggFunc": "sum",
+        "rowGroup": false,
+        "pinned": false,
+        "cellStyle": {
+            "textAlign": "right"
+        }
+    },
+    "checknum": {
+        "headerName": "Check Number",
+        "type": "float64",
+        "hide": false,
+        "aggFunc": "sum",
+        "rowGroup": false,
+        "pinned": false,
+        "cellStyle": {
+            "textAlign": "right"
+        }
+    },
+    "actname": {
+        "headerName": "Account Name",
+        "type": "object",
+        "hide": false,
+        "aggFunc": "first",
+        "rowGroup": false,
+        "pinned": false,
+        "cellStyle": {
+            "textAlign": "right"
+        }
+    },
+    "description": {
+        "headerName": "Description",
+        "type": "object",
+        "hide": false,
+        "aggFunc": "first",
+        "rowGroup": false,
+        "pinned": false,
+        "cellStyle": {
+            "textAlign": "right"
+        }
+    },
+    "trid": {
+        "headerName": "trid",
+        "type": "object",
+        "hide": true,
+        "aggFunc": "first",
+        "rowGroup": false,
+        "pinned": false,
+        "cellStyle": {
+            "textAlign": "right"
+        }
+    },
+    "orgtrid": {
+        "headerName": "Original Source System Transaction ID",
+        "type": "object",
+        "hide": false,
+        "aggFunc": "first",
+        "rowGroup": false,
+        "pinned": false,
+        "cellStyle": {
+            "textAlign": "right"
+        }
+    },
+    "fees": {
+        "headerName": "Fees",
+        "type": "float64",
+        "hide": false,
+        "aggFunc": "sum",
+        "rowGroup": false,
+        "pinned": false,
+        "cellStyle": {
+            "textAlign": "right"
+        }
+    },
+    "numerator": {
+        "headerName": "Numerator",
+        "type": "float64",
+        "hide": false,
+        "aggFunc": "sum",
+        "rowGroup": false,
+        "pinned": false,
+        "cellStyle": {
+            "textAlign": "right"
+        }
+    },
+    "denominator": {
+        "headerName": "Denominator",
+        "type": "float64",
+        "hide": false,
+        "aggFunc": "sum",
+        "rowGroup": false,
+        "pinned": false,
+        "cellStyle": {
+            "textAlign": "right"
+        }
+    },
+    "oldunits": {
+        "headerName": "Old Units",
+        "type": "float64",
+        "hide": false,
+        "aggFunc": "sum",
+        "rowGroup": false,
+        "pinned": false,
+        "cellStyle": {
+            "textAlign": "right"
+        }
+    },
+    "newunits": {
+        "headerName": "New Units",
+        "type": "float64",
+        "hide": false,
+        "aggFunc": "sum",
+        "rowGroup": false,
+        "pinned": false,
+        "cellStyle": {
+            "textAlign": "right"
+        }
+    },
+    "minsecclass": {
+        "headerName": "Min Sec Class",
+        "type": "float64",
+        "hide": false,
+        "aggFunc": "sum",
+        "rowGroup": false,
+        "pinned": false,
+        "cellStyle": {
+            "textAlign": "right"
+        }
+    },
+    "desccd": {
+        "headerName": "Description Code",
+        "type": "float64",
+        "hide": false,
+        "aggFunc": "sum",
+        "rowGroup": false,
+        "pinned": false,
+        "cellStyle": {
+            "textAlign": "right"
+        }
+    },
+    "category": {
+        "headerName": "Category",
+        "type": "object",
+        "hide": false,
+        "aggFunc": "first",
+        "rowGroup": false,
+        "pinned": false,
+        "cellStyle": {
+            "textAlign": "right"
+        }
+    },
+    "subcategory": {
+        "headerName": "Subcategory",
+        "type": "object",
+        "hide": false,
+        "aggFunc": "first",
+        "rowGroup": false,
+        "pinned": false,
+        "cellStyle": {
+            "textAlign": "right"
+        }
+    },
+    "rulenum": {
+        "headerName": "Rule Number",
+        "type": "float64",
+        "hide": false,
+        "aggFunc": "sum",
+        "rowGroup": false,
+        "pinned": false,
+        "cellStyle": {
+            "textAlign": "right"
+        }
+    },
+    "netamount": {
+        "headerName": "Net Amount",
+        "type": "float64",
+        "hide": false,
+        "aggFunc": "sum",
+        "rowGroup": false,
+        "pinned": false,
+        "cellStyle": {
+            "textAlign": "right"
+        }
+    },
+    "rglflag": {
+        "headerName": "RGL Flag",
+        "type": "object",
+        "hide": false,
+        "aggFunc": "first",
+        "rowGroup": false,
+        "pinned": false,
+        "cellStyle": {
+            "textAlign": "right"
+        }
+    },
+    "unknowndesc": {
+        "headerName": "unknowndesc",
+        "type": "float64",
+        "hide": true,
+        "aggFunc": "sum",
+        "rowGroup": false,
+        "pinned": false,
+        "cellStyle": {
+            "textAlign": "right"
+        }
+    },
+    "sortorderkey": {
+        "headerName": "sortorderkey",
+        "type": "float64",
+        "hide": true,
+        "aggFunc": "sum",
+        "rowGroup": false,
+        "pinned": false,
+        "cellStyle": {
+            "textAlign": "right"
+        }
+    },
+    "portfoliotype": {
+        "headerName": "Portfolio Type",
+        "type": "object",
+        "hide": false,
+        "aggFunc": "first",
+        "rowGroup": false,
+        "pinned": false,
+        "cellStyle": {
+            "textAlign": "right"
+        }
+    },
+    "accountnum": {
+        "headerName": "Account Number",
+        "type": "object",
+        "hide": false,
+        "aggFunc": "first",
+        "rowGroup": false,
+        "pinned": false,
+        "cellStyle": {
+            "textAlign": "right"
+        }
+    },
+    "secid": {
+        "headerName": "Security ID",
+        "type": "object",
+        "hide": false,
+        "aggFunc": "first",
+        "rowGroup": false,
+        "pinned": false,
+        "cellStyle": {
+            "textAlign": "right"
+        }
+    }
+}

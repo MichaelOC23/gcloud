@@ -17,7 +17,7 @@ WORKDIR /app
 COPY requirements.gcloud.txt /app/
 
 # Install Python dependencies, including pyaudio
-RUN pip install --no-cache-dir -r requirements.gcloud.txt
+RUN pip install --no-cache-dir -r requirements.prerec.txt
 
 # Now copy the rest of the application
 COPY ./classes-temp /app
@@ -28,4 +28,4 @@ ENV FLASK_APP=000_horizon_flask.py
 ENV FLASK_ENV=development
 
 # Run the Flask app
-CMD ["flask", "run", "--host=0.0.0.0", "--port=5020"]
+CMD ["flask", "run", "--host=0.0.0.0", "--port=8080"]

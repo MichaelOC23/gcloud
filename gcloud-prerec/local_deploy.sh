@@ -3,7 +3,7 @@
 # Define variables
 IMAGE_NAME="gcloud-prerec"
 CONTAINER_NAME="gcloud-prerec"
-PORT="5020"
+PORT="8080"
 
 # Check if the container is running
 if [ "$(docker ps -q -f name=$CONTAINER_NAME)" ]; then

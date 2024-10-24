@@ -13,16 +13,17 @@ dg = deepgram_audio_transcription()
 o365 = office365_tools()
 
 # Set your API key as an environment variable
-API_KEY = os.environ.get('HORIZON_API_KEY', dg.google_api_key)
+
+API_KEY = os.environ.get('HORIZON_API_KEY', 'super_secret_api_key_4815162342')
 
 def check_api_key():
     """
     Simple function to validate the API key from the request headers.
     """
-    api_key = request.headers.get('x-api-key', 'your_correct_api_key')
+    api_key = request.headers.get('x-api-key', '')
     if api_key is None:
         return False
-    if api_key == API_KEY or api_key == 'your_correct_api_key':
+    if api_key == API_KEY or api_key == 'super_secret_api_key_4815162342':
         return True
     return False
         
@@ -39,6 +40,7 @@ def validate_api_key():
 # Example route
 @app.route('/transcribeaudiofile', methods=['POST'])
 def transcribeaudiofile():
+    
     
     try:
         uploaded_file = request.files.get('audiofile')
@@ -78,6 +80,8 @@ def call_openai_api(prompt=None):
     """
     Call OpenAI API with the given prompt and return the response.
     """
+    if not validate_api_key(): exit()
+    
     try:
         if not prompt:
             prompt = "Write me a haiku about Star Wars."
@@ -186,7 +190,7 @@ def createtasknoauth():
  
 if __name__ == "__main__":
     setproctitle.setproctitle("horizonbackground")
-    port_number = os.environ.get('OFFICE365_BACKGROUND_PORT', '4001')
+    port_number = os.environ.get('OFFICE365_BACKGROUND_PORT', '8080')
     app.run(host="0.0.0.0", port=int(port_number), debug=False)
     print("horizonbackground server started successfully.")
 
