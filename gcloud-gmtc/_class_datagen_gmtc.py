@@ -648,6 +648,8 @@ class DatagenETL:
         print(f"\033[1;96mSaved {filename} as pickle.\033[0m")
         print(f"\033[1;96mTime to process {filename}: {time.time() - start_time}\033[0m")
         return df
+    
+    
     async def archive_source_file(self, file_path):
             if os.path.exists(file_path):
                 unique_date_key = datetime.now().strftime("%Y%m%d_%H%M%S")

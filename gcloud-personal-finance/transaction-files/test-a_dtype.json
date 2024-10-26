@@ -1,0 +1,1 @@
+{"transaction_date": "datetime64[ns]", "clearing_date": "datetime64[ns]", "description": "object", "merchant": "object", "category": "object", "type": "object", "amount_(usd)": "float64", "purchased_by": "object"}

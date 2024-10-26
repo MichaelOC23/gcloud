@@ -1,0 +1,61 @@
+{
+    "columnDefs": [
+        {
+            "checkboxSelection": true,
+            "field": "source",
+            "headerName": "source",
+            "type": []
+        },
+        {
+            "field": "title",
+            "headerName": "title",
+            "type": []
+        },
+        {
+            "field": "link",
+            "headerName": "link",
+            "type": []
+        },
+        {
+            "field": "summary",
+            "headerName": "summary",
+            "type": []
+        },
+        {
+            "field": "id",
+            "headerName": "id",
+            "type": []
+        },
+        {
+            "field": "tags",
+            "headerName": "tags",
+            "type": []
+        },
+        {
+            "field": "published_date",
+            "headerName": "published_date",
+            "type": []
+        },
+        {
+            "editable": true,
+            "field": "Amount",
+            "headerName": "AmountUSD"
+        }
+    ],
+    "defaultColDef": {
+        "editable": false,
+        "filter": true,
+        "minWidth": 5,
+        "resizable": true,
+        "sortable": true
+    },
+    "groupSelectsChildren": true,
+    "groupSelectsFiltered": true,
+    "pagination": true,
+    "paginationAutoPageSize": true,
+    "preSelectAllRows": false,
+    "rowMultiSelectWithClick": false,
+    "rowSelection": "multiple",
+    "suppressRowClickSelection": true,
+    "suppressRowDeselection": false
+}

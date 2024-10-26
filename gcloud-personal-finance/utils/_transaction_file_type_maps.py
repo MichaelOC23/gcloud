@@ -1,0 +1,128 @@
+from unicodedata import category
+import psycopg2
+
+#pip commands
+#pip3 install psycopg2-binary
+#pip3 install openai
+
+# Map of CSV types to field mappings
+typeMap = {
+  'Date,Original Date': { #Rocket Money#
+    'txtFileSource': '||HARDCODE->ROCKETMONEY',
+    'txtUniqueBusinessKey': '||Calculate->UniqueBusinessKey',
+    'datTransactionDate': 'Date',
+    # 'datOriginalTransactionDate': 'Original Date',
+    'txtAccountType': 'Account Type',
+    'txtAccountName': 'Account Name',
+    'txtAccountNumber': 'Account Number',
+    'txtInstitutionName': 'Institution Name',
+    'txtTransactionOriginalName': 'Name',
+    'txtTranNameOrig': 'Description',
+    'fltAmount': 'Amount',
+    'txtCategoryOld': 'Category',
+    'txtNote': 'Note',
+    'txtIgnore': 'Ignored From',
+    'txtTaxDeductible': 'Tax Deductible'
+  },
+  
+  'Date,Description': { #AMEX#
+    'txtFileSource': '||HARDCODE->AMEX',
+    'txtUniqueBusinessKey': '||Calculate->UniqueBusinessKey',
+    'datTransactionDate': 'Date',
+    # 'txtUniqueBusinessKey': '',
+    'txtInstitutionTransactionId': 'Reference',
+    # 'datOriginalTransactionDate': '',  
+    # 'txtAccountType': '',
+    'txtAccountName': 'Card Member',
+    'txtAccountNumber': 'Account #',
+    # 'txtInstitutionName': '',
+    # 'txtMerchantName': '',
+    # 'txtMerchantCategory': '',
+     'txtMerchantStreetAddress': 'Address',
+     'txtMerchantCity': 'City/State',
+    # 'txtMerchantState': '',
+    'txtMerchantZip': 'Zip Code',
+    'txtMerchantCountry': 'Country',
+    # 'txtTransactionOriginalName': '',
+    # 'txtTransactionOriginalNameClean': '',
+    # 'txtTranNameOrig': '',
+    'txtTranName': 'Description',
+    'txtTranName2': 'Appears On Your Statement As',
+    'fltAmount': 'Amount',
+    # 'txtCategory': '',
+    # 'fltCashFlowMultiplier': '', 
+    'txtCategoryOld': 'Category',
+    'txtNote': 'Extended Details',
+    # 'txtIgnore': '',
+    # 'txtTaxDeductible': ''
+  },
+  
+  'Transaction Date,Clearing Date': { #Apple#
+    'txtFileSource': '||HARDCODE->AppleCard',
+    'txtUniqueBusinessKey': '||Calculate->UniqueBusinessKey',
+    'datTransactionDate': 'Transaction Date',
+    # 'txtUniqueBusinessKey': '',
+    # 'txtInstitutionTransactionId': '',
+    # 'datOriginalTransactionDate': '',  
+    # 'txtAccountType': '',
+    'txtAccountName': 'Purchased By',
+    # 'txtAccountNumber': '',
+    # 'txtInstitutionName': '',
+    'txtMerchantName': 'Merchant',
+    # 'txtMerchantCategory': '',
+    # 'txtMerchantStreetAddress': '',
+    # 'txtMerchantCity': '',
+    # 'txtMerchantState': '',
+    # 'txtMerchantZip': '',
+    # 'txtMerchantCountry': '',
+    # 'txtTransactionOriginalName': '',
+    # 'txtTransactionOriginalNameClean': '',
+    # 'txtTranNameOrig': '',
+    'txtTranName': 'Description',
+    # 'txtTranName2': '',
+    'fltAmount': 'Amount (USD)',
+    'txtTransactionType': 'Type',
+    # 'txtCategory': '',
+    # 'fltCashFlowMultiplier': '', 
+    'txtCategoryOld': 'Category',
+    # 'txtNote': '',
+    # 'txtIgnore': '',
+    # 'txtTaxDeductible': ''
+  },
+  
+  'Trade Date,Post Date': { #CHASE# 
+    'txtFileSource': '||HARDCODE->CHASE',
+    'txtUniqueBusinessKey': '||Calculate->UniqueBusinessKey',
+    'datTransactionDate': 'Trade Date',
+    # 'txtUniqueBusinessKey': '',
+    # 'txtInstitutionTransactionId': '',
+    # 'datOriginalTransactionDate': '',  
+    'txtAccountType': 'Account Type',
+    'txtAccountName': 'Account Name',
+    'txtAccountNumber': 'Account Number',
+    # 'txtInstitutionName': '',
+    # 'txtMerchantName': '',
+    # 'txtMerchantCategory': '',
+    # 'txtMerchantStreetAddress': '',
+    # 'txtMerchantCity': '',
+    # 'txtMerchantState': '',
+    # 'txtMerchantZip': '',
+    # 'txtMerchantCountry': '',
+    # 'txtTransactionOriginalName': '',
+    # 'txtTransactionOriginalNameClean': '',
+    # 'txtTranNameOrig': '',
+    'txtTranName': 'Description',
+    'txtTranName2': 'Tran Code Description',
+    'fltAmount': 'Amount USD',
+    'txtTransactionType': 'Type',
+    # 'txtCategory': '',
+    # 'fltCashFlowMultiplier': '', 
+    'txtCheckNumber': 'Check Number',
+    # 'txtCategoryOld': '',
+    # 'txtNote': '',
+    # 'txtIgnore': '',
+    # 'txtTaxDeductible': ''
+        }
+}
+    
+

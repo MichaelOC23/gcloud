@@ -1,0 +1,129 @@
+{
+    "columnDefs": [
+        {
+            "editable": true,
+            "enableRowGroup": true,
+            "field": "source",
+            "filter": true,
+            "headerName": "source",
+            "minWidth": 5,
+            "resizable": true,
+            "sortable": true,
+            "type": []
+        },
+        {
+            "editable": true,
+            "enableRowGroup": true,
+            "field": "title",
+            "filter": true,
+            "headerName": "title",
+            "minWidth": 5,
+            "resizable": true,
+            "sortable": true,
+            "type": []
+        },
+        {
+            "editable": true,
+            "enableRowGroup": true,
+            "field": "link",
+            "filter": true,
+            "headerName": "link",
+            "minWidth": 5,
+            "resizable": true,
+            "sortable": true,
+            "type": []
+        },
+        {
+            "editable": true,
+            "enableRowGroup": true,
+            "field": "summary",
+            "filter": true,
+            "headerName": "summary",
+            "minWidth": 5,
+            "resizable": true,
+            "sortable": true,
+            "type": []
+        },
+        {
+            "editable": true,
+            "enableRowGroup": true,
+            "field": "id",
+            "filter": true,
+            "headerName": "id",
+            "minWidth": 5,
+            "resizable": true,
+            "sortable": true,
+            "type": []
+        },
+        {
+            "editable": true,
+            "enableRowGroup": true,
+            "field": "tags",
+            "filter": true,
+            "headerName": "tags",
+            "minWidth": 5,
+            "resizable": true,
+            "sortable": true,
+            "type": []
+        },
+        {
+            "editable": true,
+            "enableRowGroup": true,
+            "field": "published_date",
+            "filter": true,
+            "headerName": "published_date",
+            "minWidth": 5,
+            "resizable": true,
+            "sortable": true,
+            "type": []
+        },
+        {
+            "editable": true,
+            "enableRowGroup": true,
+            "field": "AmountUSD",
+            "filter": true,
+            "headerName": "AmountUSD",
+            "minWidth": 5,
+            "resizable": true,
+            "sortable": true,
+            "type": []
+        }
+    ],
+    "defaultColDef": {
+        "editable": true,
+        "enableRowGroup": true,
+        "filter": true,
+        "minWidth": 5,
+        "resizable": true,
+        "sortable": true
+    },
+    "enableAdvancedFilter": true,
+    "enableCharts": true,
+    "enableRangeSelection": true,
+    "groupSelectsChildren": true,
+    "groupSelectsFiltered": true,
+    "onSelectionChanged": "on_row_selected",
+    "pagination": true,
+    "paginationAutoPageSize": true,
+    "preSelectAllRows": false,
+    "rowMultiSelectWithClick": false,
+    "rowSelection": "multiple",
+    "sideBar": true,
+    "statusBar": {
+        "statusPanels": [
+            {
+                "statusPanel": "agAggregationComponent",
+                "statusPanelParams": {
+                    "aggFuncs": [
+                        "min",
+                        "max",
+                        "avg"
+                    ]
+                }
+            }
+        ]
+    },
+    "suppressRowClickSelection": false,
+    "suppressRowDeselection": false,
+    "useCheckbox": true
+}

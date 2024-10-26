@@ -1,0 +1,215 @@
+{
+  "models": {
+    "outercircles": {
+      "entities": {
+        "transaction": {
+          "attributes": [
+            {
+              "txtFileSource": {
+                "FriendlyName": "File Source",
+                "DefaultVisibility": true
+              }
+            },
+            {
+              "datTransactionDate": ""
+            },
+            {
+              "txtUniqueBusinessKey": ""
+            },
+            {
+              "txtInstitutionTransactionId": ""
+            },
+            {
+              "txtAccountType": {
+                "DefaultVisibility": false
+              }
+            },
+            {
+              "txtAccountName": ""
+            },
+            {
+              "txtAccountNumber": ""
+            },
+            {
+              "txtInstitutionName": {
+                "DefaultVisibility": false
+              }
+            },
+            {
+              "txtMerchantName": {
+                "DefaultVisibility": false
+              }
+            },
+            {
+              "txtMerchantCategory": {
+                "DefaultVisibility": false
+              }
+            },
+            {
+              "txtMerchantStreetAddress": ""
+            },
+            {
+              "txtMerchantCity": ""
+            },
+            {
+              "txtMerchantState": {
+                "DefaultVisibility": false
+              }
+            },
+            {
+              "txtMerchantZip": ""
+            },
+            {
+              "txtMerchantCountry": ""
+            },
+            {
+              "txtTransactionOriginalName": {
+                "DefaultVisibility": false
+              }
+            },
+            {
+              "txtTransactionOriginalNameClean": {
+                "DefaultVisibility": false
+              }
+            },
+            {
+              "txtTranNameOrig": {
+                "DefaultVisibility": false
+              }
+            },
+            {
+              "txtTranName": {
+                "DefaultVisibility": false
+              }
+            },
+            {
+              "txtTranName2": ""
+            },
+            {
+              "fltAmount": ""
+            },
+            {
+              "txtTransactionType": ""
+            },
+            {
+              "txtCategory": ""
+            },
+            {
+              "fltCashFlowMultiplier": {
+                "DefaultVisibility": false
+              }
+            },
+            {
+              "txtCategoryOld": {
+                "DefaultVisibility": false
+              }
+            },
+            {
+              "txtCheckNumber": ""
+            },
+            {
+              "txtNote": ""
+            },
+            {
+              "txtIgnore": {
+                "DefaultVisibility": false
+              }
+            },
+            {
+              "txtTaxDeductible": ""
+            }
+          ]
+        },
+        "categorymap": {
+          "attributes": [
+            {
+              "intCategoryId": ""
+            },
+            {
+              "txtTransactionDescriptionContains": ""
+            },
+            {
+              "fltAmountIsEqualTo": ""
+            },
+            {
+              "fltAmountIsGreaterThan": ""
+            },
+            {
+              "fltAmountIsLessThan": ""
+            }
+          ]
+        },
+        "manualupdates": {
+          "attributes": [
+            {
+              "txtUniqueBusinessKey": ""
+            },
+            {
+              "txtFieldToUpdate": ""
+            },
+            {
+              "txtNewValue": ""
+            }
+          ]
+        },
+        "category": {
+          "attributes": [
+            {
+              "txtCategory": ""
+            },
+            {
+              "txtCategoryParent": ""
+            },
+            {
+              "txtCategoryType": ""
+            }
+          ]
+        }
+      }
+    }
+  },
+  "databasedefinitions": {
+    "postgresql": {
+      "fieldtypes": {
+        "txt": "TEXT",
+        "flt": "FLOAT",
+        "int": "INTEGER",
+        "bln": "BOOLEAN",
+        "dat": "DATE"
+      },
+      "defaultfields": {
+        "Id": "SERIAL PRIMARY KEY",
+        "datCreatedDate": "DATE",
+        "txtCreatedByUser": "TEXT",
+        "datUpdatedDate": "DATE",
+        "txtUpdatedByUser": "TEXT",
+        "blnIsValid": "BOOLEAN",
+        "intEntitlementId": "INTEGER"
+      },
+      "AttributeDefaultProperties": {
+        "help": "None",
+        "width": "None",
+        "required": "False",
+        "disabled": "False",
+        "default": "",
+        "Text": {
+          "max_chars": "None",
+          "validate": "None"
+        },
+        "Numeric": {
+          "note": "Includes Number, Datetime, Date, and Time",
+          "format": "None",
+          "format_txt": "None",
+          "format_flt": "%,.2f",
+          "format_int": "%d",
+          "format_bln": "None",
+          "format_dat": "%d %b %y",
+          "min_value": "None",
+          "max_value": "None",
+          "step": "None"
+        },
+        "fieldformatguidance": "{\nDate Examples\n%d/%m/%Y: \\\"19/02/2024\\\" (Common in many regions)\n%m-%d-%Y: \\\"02-19-2024\\\" (Common in the US)\n%B %d, %Y: \\\"February 19, 2024\\\" (Full month name)\n%d %b %y: \\\"19 Feb 24\\\" (Abbreviated month name)\n%A, %d %B %Y: \\\"Monday, 19 February 2024\\\" (Full weekday)\nTime Examples\n%H:%M:%S: \\\"15:24:37\\\" (24-hour clock)\n%I:%M %p: \\\"03:24 PM\\\" (12-hour clock with AM/PM)\n%H:%M (%Z): \\\"15:24 (PST)\\\" (24-hour clock with timezone abbreviation)\nNumber Examples\n$%,.2f: \\\"$1,234.56\\\" (Currency with thousands separator)\n%.2f%%: \\\"57.89%\\\" (Percentage with two decimal places)\n%d Items: \\\"10 Items\\\" (Integer followed by a label)\n%g: \\\"12.5\\\" or \\\"1.25e+01\\\" (Shorter representation of numbers)\nCombined Examples\n%m/%d/%Y %H:%M: \\\"02/19/2024 15:24\\\" (Date and time)\nInvoice Date: %d %b %Y: \\\"Invoice Date: 19 Feb 2024\\\" \nExpires on: %A, %B %d, %Y: \\\"Expires on: Monday, February 19, 2024\\\"\nLet me know if you want examples focused on a specific category (dates, times, or numbers), and I'll gladly provide more!\n}"
+      }
+    }
+  }
+}

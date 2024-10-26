@@ -1,0 +1,347 @@
+{
+    "models": {
+        "personal-finance": {
+            "entities": {
+                "transaction": {
+                    "attributes": [
+                        {
+                            "FileSource": {
+                                "Type": "TEXT",
+                                "FriendlyName": "Source",
+                                "VisibleByDefault": true
+                            }
+                        },
+                        {
+                            "TransactionDate": {
+                                "Type": "DATE",
+                                "FriendlyName": "Date",
+                                "VisibleByDefault": true
+                            }
+                        },
+                        {
+                            "UniqueBusinessKey": {
+                                "Type": "TEXT",
+                                "FriendlyName": "Id",
+                                "VisibleByDefault": false
+                            }
+                        },
+                        {
+                            "InstitutionTransactionId": {
+                                "Type": "TEXT",
+                                "FriendlyName": "Inst. Id",
+                                "VisibleByDefault": false
+                            }
+                        },
+                        {
+                            "AccountType": {
+                                "Type": "TEXT",
+                                "FriendlyName": "Account Type",
+                                "VisibleByDefault": false
+                            }
+                        },
+                        {
+                            "AccountName": {
+                                "Type": "TEXT",
+                                "FriendlyName": "Account Name",
+                                "VisibleByDefault": true
+                            }
+                        },
+                        {
+                            "AccountNumber": {
+                                "Type": "TEXT",
+                                "FriendlyName": "Account Number",
+                                "VisibleByDefault": false
+                            }
+                        },
+                        {
+                            "InstitutionName": {
+                                "Type": "TEXT",
+                                "FriendlyName": "Inst. Name",
+                                "VisibleByDefault": false
+                            }
+                        },
+                        {
+                            "MerchantName": {
+                                "Type": "TEXT",
+                                "FriendlyName": "Merchant",
+                                "VisibleByDefault": true
+                            }
+                        },
+                        {
+                            "MerchantCategory": {
+                                "Type": "TEXT",
+                                "FriendlyName": "Business Type",
+                                "VisibleByDefault": false
+                            }
+                        },
+                        {
+                            "MerchantStreetAddress": {
+                                "Type": "TEXT",
+                                "FriendlyName": "Street Address",
+                                "VisibleByDefault": false
+                            }
+                        },
+                        {
+                            "MerchantCity": {
+                                "Type": "TEXT",
+                                "FriendlyName": "City",
+                                "VisibleByDefault": false
+                            }
+                        },
+                        {
+                            "MerchantState": {
+                                "Type": "TEXT",
+                                "FriendlyName": "State",
+                                "VisibleByDefault": false
+                            }
+                        },
+                        {
+                            "MerchantZip": {
+                                "Type": "TEXT",
+                                "FriendlyName": "Zip Code",
+                                "VisibleByDefault": false
+                            }
+                        },
+                        {
+                            "MerchantCountry": {
+                                "Type": "TEXT",
+                                "FriendlyName": "Country",
+                                "VisibleByDefault": false
+                            }
+                        },
+                        {
+                            "TransactionOriginalName": {
+                                "Type": "TEXT",
+                                "FriendlyName": "Transaction Original Name",
+                                "VisibleByDefault": false
+                            }
+                        },
+                        {
+                            "TransactionOriginalNameClean": {
+                                "Type": "TEXT",
+                                "FriendlyName": "Cleaned Transaction Name",
+                                "VisibleByDefault": false
+                            }
+                        },
+                        {
+                            "TranNameOrig": {
+                                "Type": "TEXT",
+                                "FriendlyName": "Original Transaction Name",
+                                "VisibleByDefault": false
+                            }
+                        },
+                        {
+                            "TranName": {
+                                "Type": "TEXT",
+                                "FriendlyName": "Transaction",
+                                "VisibleByDefault": true
+                            }
+                        },
+                        {
+                            "TranName2": {
+                                "Type": "TEXT",
+                                "FriendlyName": "Alternate Transaction Name",
+                                "VisibleByDefault": false
+                            }
+                        },
+                        {
+                            "Amount": {
+                                "Type": "FLOAT",
+                                "FriendlyName": "Amount",
+                                "VisibleByDefault": true
+                            }
+                        },
+                        {
+                            "TransactionType": {
+                                "Type": "TEXT",
+                                "FriendlyName": "Tran. Type",
+                                "VisibleByDefault": true
+                            }
+                        },
+                        {
+                            "Category": {
+                                "Type": "TEXT",
+                                "FriendlyName": "Category",
+                                "VisibleByDefault": true
+                            }
+                        },
+                        {
+                            "CashFlowMultiplier": {
+                                "Type": "FLOAT",
+                                "FriendlyName": "Cash Flow Multiplier",
+                                "VisibleByDefault": false
+                            }
+                        },
+                        {
+                            "Category2": {
+                                "Type": "TEXT",
+                                "FriendlyName": "Category proivded by the institution",
+                                "VisibleByDefault": false
+                            }
+                        },
+                        {
+                            "CheckNumber": {
+                                "Type": "TEXT",
+                                "FriendlyName": "Check #",
+                                "VisibleByDefault": false
+                            }
+                        },
+                        {
+                            "Note": {
+                                "Type": "TEXT",
+                                "FriendlyName": "Note",
+                                "VisibleByDefault": false
+                            }
+                        },
+                        {
+                            "Ignore": {
+                                "Type": "BOOLEAN",
+                                "FriendlyName": "Ignore",
+                                "VisibleByDefault": false
+                            }
+                        },
+                        {
+                            "TaxDeductible": {
+                                "Type": "BOOLEAN",
+                                "FriendlyName": "Tax Deductible",
+                                "VisibleByDefault": true
+                            }
+                        }
+                    ]
+                },
+                "categorymap": {
+                    "attributes": [
+                        {
+                            "CategoryId": {
+                                "Type": "INTEGER",
+                                "FriendlyName": "Category ID",
+                                "VisibleByDefault": true
+                            }
+                        },
+                        {
+                            "TransactionDescriptionContains": {
+                                "Type": "TEXT",
+                                "FriendlyName": "Description Keyword",
+                                "VisibleByDefault": true
+                            }
+                        },
+                        {
+                            "AmountIsEqualTo": {
+                                "Type": "FLOAT",
+                                "FriendlyName": "Amount Equal To",
+                                "VisibleByDefault": false
+                            }
+                        },
+                        {
+                            "AmountIsGreaterThan": {
+                                "Type": "FLOAT",
+                                "FriendlyName": "Amount Greater Than",
+                                "VisibleByDefault": false
+                            }
+                        },
+                        {
+                            "AmountIsLessThan": {
+                                "Type": "FLOAT",
+                                "FriendlyName": "Amount Less Than",
+                                "VisibleByDefault": false
+                            }
+                        }
+                    ]
+                },
+                "manualupdates": {
+                    "attributes": [
+                        {
+                            "UniqueBusinessKey": {
+                                "Type": "TEXT",
+                                "FriendlyName": "Unique Business Key",
+                                "VisibleByDefault": true
+                            }
+                        },
+                        {
+                            "FieldToUpdate": {
+                                "Type": "TEXT",
+                                "FriendlyName": "Field to Update",
+                                "VisibleByDefault": true
+                            }
+                        },
+                        {
+                            "NewValue": {
+                                "Type": "TEXT",
+                                "FriendlyName": "New Value",
+                                "VisibleByDefault": true
+                            }
+                        }
+                    ]
+                },
+                "category": {
+                    "attributes": [
+                        {
+                            "Category": {
+                                "Type": "TEXT",
+                                "FriendlyName": "Category Name",
+                                "VisibleByDefault": true
+                            }
+                        },
+                        {
+                            "CategoryParent": {
+                                "Type": "TEXT",
+                                "FriendlyName": "Parent Category",
+                                "VisibleByDefault": true
+                            }
+                        },
+                        {
+                            "CategoryType": {
+                                "Type": "TEXT",
+                                "FriendlyName": "Category Type",
+                                "VisibleByDefault": true
+                            }
+                        }
+                    ]
+                }
+            }
+        }
+    },
+    "databasedefinitions": {
+        "postgresql": {
+            "fieldtypes": {
+                "txt": "TEXT",
+                "flt": "FLOAT",
+                "int": "INTEGER",
+                "bln": "BOOLEAN",
+                "dat": "DATE"
+            },
+            "defaultfields": {
+                "Id": "SERIAL PRIMARY KEY",
+                "CreatedDate": "DATE",
+                "CreatedByUser": "TEXT",
+                "UpdatedDate": "DATE",
+                "UpdatedByUser": "TEXT",
+                "IsValid": "BOOLEAN",
+                "EntitlementId": "INTEGER"
+            },
+            "AttributeDefaultProperties": {
+                "help": "None",
+                "width": "None",
+                "required": "False",
+                "disabled": "False",
+                "default": "",
+                "Text": {
+                    "max_chars": "None",
+                    "validate": "None"
+                },
+                "Numeric": {
+                    "note": "Includes Number, Datetime, Date, and Time",
+                    "format": "None",
+                    "format_txt": "None",
+                    "format_flt": "%,.2f",
+                    "format_int": "%d",
+                    "format_bln": "None",
+                    "format_dat": "%d %b %y",
+                    "min_value": "None",
+                    "max_value": "None",
+                    "step": "None"
+                }
+            }
+        }
+    }
+}

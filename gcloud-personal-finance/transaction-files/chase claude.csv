@@ -1,0 +1,15 @@
+﻿Trade Date,Post Date,Settlement Date,Account Name,Account Number,Account Type,Type,Description,Cusip,Ticker,Security Type,Local Currency,Price USD,Price Local,Quantity,Cost USD,Cost Local,G/L Short USD,G/L Short Local,G/L Long USDs,G/L Long Local,Amount USD,Amount Local,Income USD,Income Local,Balance,Commissions USD,Commissions Local,Tran Code,Tran Code Description,Broker,Check Number,Tax Withheld
+12/30/2022,12/30/2022,12/30/2022,Operating,...0673,Checking,Account Transfer,Online Transfer from CHK ...0681 transaction#: 16162734775,,,,USD,,,,,,,,,,50000,50000,,,558532.83,,,150,ACCOUNT TRANSFER,,0,
+12/30/2022,12/30/2022,12/30/2022,Operating,...0673,Checking,ACH Credit,"INVESTCLOUD, INC PAYROLL 2001XXXX PPD ID: 9999922657",,,,USD,,,,,,,,,,16513.89,16513.89,,,575046.72,,,176,ACH CREDIT,,0,
+12/30/2022,12/30/2022,12/30/2022,Operating,...0673,Checking,Quickpay Online Withdrawal,Zelle payment to NTOMBIZODWA NDABA JPM999k8lcw7,,,,USD,,,,,,,,,,-250,-250,,,574796.72,,,761,QUICKPAY ONLINE W/DRWL EXT XFR,,0,
+12/30/2022,12/30/2022,12/30/2022,Operating,...0673,Checking,ACH Debit,LA Co TTC Paymnt 2139742111 3842519898 WEB ID: 0000079161,,,,USD,,,,,,,,,,-28479.23,-28479.23,,,546317.49,,,177,ACH DEBIT,,0,
+12/30/2022,12/30/2022,12/30/2022,Operating,...0673,Checking,Account Transfer,Online Transfer to CHK ...0699 transaction#: 16108949731,,,,USD,,,,,,,,,,-200,-200,,,546117.49,,,151,ACCOUNT TRANSFER,,0,
+12/30/2022,12/30/2022,12/30/2022,Operating,...0673,Checking,Account Transfer,Online Transfer to CHK ...1925 transaction#: 16109183745,,,,USD,,,,,,,,,,-200,-200,,,545917.49,,,151,ACCOUNT TRANSFER,,0,
+12/30/2022,12/30/2022,12/30/2022,Operating,...0673,Checking,Deposit,INTEREST PAYMENT TRAN DATE:20221230 POSTING DATE:20221230,,,,USD,,,,,,,,,,4.45,4.45,,,545921.94,,,080,DEPOSIT,,0,
+
+01/03/2022,01/03/2022,01/03/2022,Play Money,...0699,Checking,Account Transfer,Online Transfer from CHK ...0673 transaction#: 13319300922,,,,USD,,,,,,,,,,200,200,,,11015.85,,,150,ACCOUNT TRANSFER,,0,
+01/03/2022,01/03/2022,01/03/2022,Benef Reimb,...6090,Savings,Check Deposit,REMOTE ONLINE DEPOSIT TRAN DATE:20220103 POSTING DATE:20220103,,,,USD,,,,,,,,,,153.31,153.31,,,249.47,,,203,CHECK DEPOSIT,,0,
+01/03/2022,01/03/2022,01/03/2022,Ruth Play Money,...1925,Checking,Account Transfer,Online Transfer from CHK ...0673 transaction#: 13319340247,,,,USD,,,,,,,,,,200,200,,,544.41,,,150,ACCOUNT TRANSFER,,0,
+01/03/2022,01/03/2022,01/03/2022,Ruth Play Money,...1925,Checking,Debit Card,0103ACTBLUE*DSCC-SenateDem 617-5177600 MA04867327031486898 00,,,,USD,,,,,,,,,,-25,-25,,,519.41,,,522,DEBIT CARD,,0,
+01/03/2022,01/03/2022,01/03/2022,Self-Directed,...0875,Brokerage,Reinvestment,JPM DEPOSIT ACCT F BROKERAGE NON RET JPMC BK NA MONTHLY INTEREST REINVESTED,400AK6009,,,USD,0,0,0.28,,,,,,,-0.28,-0.28,,,,,,REI FE,REINVESTMENT,,0,
+01/03/2022,01/03/2022,01/03/2022,Self-Directed,...0875,Brokerage,Interest,"JPMORGAN DEPOSIT ACCOUNT JPMORGAN CHASE BANK, N.A. MONTHLY INTEREST 12/01-12/31 AMOUNT INCLUDED ON 2021-1099",,,,USD,0,0,,,,,,,,0.28,0.28,,,,,,INT FE,INTEREST,,0,

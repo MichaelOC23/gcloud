@@ -1,0 +1,1 @@
+{"date": "datetime64[ns]", "original_date": "datetime64[ns]", "account_type": "object", "account_name": "object", "account_number": "float64", "institution_name": "object", "name": "object", "custom_name": "object", "amount": "float64", "description": "object", "category": "object", "note": "object", "ignored_from": "object", "tax_deductible": "object"}

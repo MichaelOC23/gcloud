@@ -1,0 +1,1 @@
+{"date": "datetime64[ns]", "description": "object", "card_member": "object", "account_#": "float64", "amount": "float64", "extended_details": "object", "appears_on_your_statement_as": "object", "address": "object", "city/state": "object", "zip_code": "object", "country": "object", "reference": "object", "category": "object"}

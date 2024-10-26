@@ -1,0 +1,26 @@
+[theme]
+primaryColor = "#032575"
+backgroundColor = "#1B1C26"
+secondaryBackgroundColor = "#242633"
+textColor = "#FAFAFA"
+font = "sans serif"
+
+[server]
+headless = true
+runOnSave = true
+enableCORS = true
+enableXsrfProtection = true
+maxUploadSize = 10000
+maxMessageSize = 10000
+enableWebsocketCompression = false
+enableStaticServing = false
+folderWatchBlacklist = ""
+
+[runner]
+magicEnabled = false
+fastReruns = true
+enforceSerializableSessionState = false
+enumCoercion = "nameOnly"
+
+[browser]
+gatherUsageStats = false
