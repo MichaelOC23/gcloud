@@ -12,6 +12,13 @@
                             }
                         },
                         {
+                            "FileShape": {
+                                "Type": "TEXT",
+                                "FriendlyName": "File Shape",
+                                "VisibleByDefault": true
+                            }
+                        },
+                        {
                             "TransactionDate": {
                                 "Type": "DATE",
                                 "FriendlyName": "Date",
@@ -22,7 +29,8 @@
                             "UniqueBusinessKey": {
                                 "Type": "TEXT",
                                 "FriendlyName": "Id",
-                                "VisibleByDefault": false
+                                "VisibleByDefault": false,
+                                "Unique": true
                             }
                         },
                         {
@@ -110,27 +118,6 @@
                             }
                         },
                         {
-                            "TransactionOriginalName": {
-                                "Type": "TEXT",
-                                "FriendlyName": "Transaction Original Name",
-                                "VisibleByDefault": false
-                            }
-                        },
-                        {
-                            "TransactionOriginalNameClean": {
-                                "Type": "TEXT",
-                                "FriendlyName": "Cleaned Transaction Name",
-                                "VisibleByDefault": false
-                            }
-                        },
-                        {
-                            "TranNameOrig": {
-                                "Type": "TEXT",
-                                "FriendlyName": "Original Transaction Name",
-                                "VisibleByDefault": false
-                            }
-                        },
-                        {
                             "TranName": {
                                 "Type": "TEXT",
                                 "FriendlyName": "Transaction",
@@ -146,7 +133,7 @@
                         },
                         {
                             "Amount": {
-                                "Type": "FLOAT",
+                                "Type": "DECIMAL(10, 2)",
                                 "FriendlyName": "Amount",
                                 "VisibleByDefault": true
                             }
@@ -159,7 +146,7 @@
                             }
                         },
                         {
-                            "Category": {
+                            "CategoryTag": {
                                 "Type": "TEXT",
                                 "FriendlyName": "Category",
                                 "VisibleByDefault": true
@@ -167,13 +154,13 @@
                         },
                         {
                             "CashFlowMultiplier": {
-                                "Type": "FLOAT",
+                                "Type": "DECIMAL(10, 2)",
                                 "FriendlyName": "Cash Flow Multiplier",
                                 "VisibleByDefault": false
                             }
                         },
                         {
-                            "Category2": {
+                            "CategoryAlt": {
                                 "Type": "TEXT",
                                 "FriendlyName": "Category proivded by the institution",
                                 "VisibleByDefault": false
@@ -196,7 +183,7 @@
                         {
                             "Ignore": {
                                 "Type": "BOOLEAN",
-                                "FriendlyName": "Ignore",
+                                "FriendlyName": "Ignore Transaction",
                                 "VisibleByDefault": false
                             }
                         },
@@ -212,9 +199,16 @@
                 "categorymap": {
                     "attributes": [
                         {
-                            "CategoryId": {
-                                "Type": "INTEGER",
-                                "FriendlyName": "Category ID",
+                            "CategoryTag": {
+                                "Type": "TEXT",
+                                "FriendlyName": "Category Tag",
+                                "VisibleByDefault": true
+                            }
+                        },
+                        {
+                            "MapType": {
+                                "Type": "TEXT",
+                                "FriendlyName": "KeyWord Amount or Between",
                                 "VisibleByDefault": true
                             }
                         },
@@ -227,21 +221,21 @@
                         },
                         {
                             "AmountIsEqualTo": {
-                                "Type": "FLOAT",
+                                "Type": "DECIMAL(10, 2)",
                                 "FriendlyName": "Amount Equal To",
                                 "VisibleByDefault": false
                             }
                         },
                         {
                             "AmountIsGreaterThan": {
-                                "Type": "FLOAT",
+                                "Type": "DECIMAL(10, 2)",
                                 "FriendlyName": "Amount Greater Than",
                                 "VisibleByDefault": false
                             }
                         },
                         {
                             "AmountIsLessThan": {
-                                "Type": "FLOAT",
+                                "Type": "DECIMAL(10, 2)",
                                 "FriendlyName": "Amount Less Than",
                                 "VisibleByDefault": false
                             }
@@ -276,7 +270,7 @@
                 "category": {
                     "attributes": [
                         {
-                            "Category": {
+                            "CategoryTag": {
                                 "Type": "TEXT",
                                 "FriendlyName": "Category Name",
                                 "VisibleByDefault": true
@@ -305,16 +299,16 @@
         "postgresql": {
             "fieldtypes": {
                 "txt": "TEXT",
-                "flt": "FLOAT",
                 "int": "INTEGER",
+                "def": "DECIMAL(10, 2)",
                 "bln": "BOOLEAN",
                 "dat": "DATE"
             },
             "defaultfields": {
-                "Id": "SERIAL PRIMARY KEY",
-                "CreatedDate": "DATE",
-                "CreatedByUser": "TEXT",
-                "UpdatedDate": "DATE",
+                "Id": "UUID PRIMARY KEY DEFAULT gen_random_uuid()",
+                "CreatedAt": "TIMESTAMP DEFAULT CURRENT_TIMESTAMP",
+                "CreatedByUser": "TEXT DEFAULT CURRENT_USER",
+                "UpdatedDate": "TIMESTAMP",
                 "UpdatedByUser": "TEXT",
                 "IsValid": "BOOLEAN",
                 "EntitlementId": "INTEGER"

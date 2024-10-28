@@ -4,13 +4,62 @@ import os, sys, csv, json, chardet, re, time, uuid
 from pathlib import Path
 
 from decimal import Decimal
-import psycopg2
+from datetime import datetime
 import pandas as pd
-import urllib.parse as up
 from supabase import create_client, Client
 
 def get_column_name_dict():
-    return  { 'Date': 'TransactionDate', 'Account Type': 'AccountType', 'Account Name': 'AccountName', 'Account Number': 'AccountNumber', 'Institution Name': 'InstitutionName', 'Name': 'TransactionName', 'Description':  'TranName', 'Amount': 'Amount', 'Category': 'CategoryOld', 'Note': 'Note', 'Ignored From': 'Ignore', 'Tax Deductible': 'TaxDeductible', 'Reference': 'InstitutionTransactionId', 'Card Member': 'AccountName', 'Account #': 'AccountNumber', 'Address': 'MerchantStreetAddress', 'City/State': 'MerchantCity', 'Zip Code': 'MerchantZip', 'Country': 'MerchantCountry', 'Appears On Your Statement As': 'TransactionDescription', 'Transaction Date': 'TransactionDate', 'Purchased By': 'AccountName', 'Merchant': 'MerchantName', 'Amount (USD)': 'Amount', 'Extended Details': 'Note', 'Trade Date': 'TransactionDate', 'Tran Code Description': 'TransactionDescription', 'Amount USD': 'Amount', 'Type': 'TransactionType', 'Check Number': 'CheckNumber'}
+    return  {
+            "Date,Description,Card Mem": {
+                "institution": "Amex",
+                "multiplier": 1,
+                "map": {
+                    "date": "transactiondate",
+                    "description": "tranname",
+                    "card_member": "accountname",
+                    "account_#": "accountnumber",
+                    "amount": "amount",
+                    "extended_details": "note",
+                    "appears_on_your_statement_as": "tranname2",
+                    "address": "merchantstreetaddress",
+                    "city/state": "merchantcity",
+                    "zip_code": "merchantzip",
+                    "country": "merchantcountry",
+                    "reference": "institutiontransactionid",
+                    "category": "categoryalt",
+                }
+            },
+            "Transaction Date,Clearing": {
+                "institution": "Apple",
+                "multiplier": 1,
+                "map": {
+                    "transaction date": "transactiondate",
+                    "purchased by": "accountname",
+                    "merchant": "merchantname",
+                    "description": "tranname",
+                    "amount (usd)": "amount",
+                    "type": "transactiontype",
+                    "category": "categoryalt"
+                }
+            },
+            "Trade Date,Post Date,Sett": {
+                "institution": "Chase",
+                "multiplier": 1,
+                "map": {
+                    "trade_date": "transactiondate",
+                    "account_type": "accounttype",
+                    "account_name": "accountname",
+                    "account_number": "accountnumber",
+                    "description": "tranname",
+                    "tran_code_description": "tranname2",
+                    "amount_usd": "amount",
+                    "type": "transactiontype",
+                    "check_number": "checknumber"
+                }
+            }
+        }
+
+
 
 class personal_finance():
     def __init__(self):
@@ -40,56 +89,20 @@ class postgres_sql_utils():
         self.dataframe_analysis = None
         self.csv_file_market_length = 25
         
-    def clean_column_names(self, columns):
-        # Clean column names to comply with PostgreSQL conventions
-        return [re.sub(r'\W+', '_', col.lower()) for col in columns]
-        
     def get_csv_column_title_file_marker(self, file_path):
         """Returns the first 50 characters of the first row (column titles) of a CSV file."""
         try:
-            with open(file_path, mode='r', encoding='utf-8') as file:
+            with open(file_path, mode='r', encoding='utf-8-sig') as file:  # Use 'utf-8-sig' to auto-remove BOM if present
                 reader = csv.reader(file)
                 header = next(reader)  # Get the first row (column titles)
-                header_str = ','.join(header)  # Convert list of titles to a single string
-                marker =  header_str[:self.csv_file_market_length]  # Return first characters
-                print(f"{marker} | {file_path}")
+                header_str = ','.join(header).strip()  # Convert list of titles to a single string and strip whitespace
+                marker = header_str[:self.csv_file_market_length]  # Return first characters
+                # print(f"{marker} | {file_path}")
                 return marker
         except Exception as e:
             print(f"An error occurred: {e}")
             return None
 
-    def generate_create_table_query(self, df, table_name, schema=None ):
-        
-        self._create_schema( schema)
-        
-        if not schema:
-            schema = self.schema
-        # Clean up the dataframe column names
-        cleaned_columns = self.clean_column_names(df.columns)
-        df.columns = cleaned_columns
-
-        # Start building the create table query
-        create_query = f'CREATE TABLE IF NOT EXISTS {schema}.{table_name} ('
-        
-        # Add the GUID primary key
-        # create_query += 'id serial4 NOT NULL, '
-        create_query += ''
-
-        # Add columns based on DataFrame dtypes
-        for col in df.columns:
-            dtype = df[col].dtype
-            if dtype == 'O':
-                create_query += f'{col} TEXT, '
-            elif dtype == 'float64' or dtype == 'int64' or isinstance(df[col].iloc[0], Decimal):
-                create_query += f'{col} DECIMAL, '
-            elif dtype == 'datetime64[ns]':
-                create_query += f'{col} TEXT, '  # Treat dates as strings
-
-        # Remove trailing comma and space
-        create_query = create_query.rstrip(', ') + ');'
-
-        return create_query
-    
     def load_folder_of_csvs_to_one_table(self, table_name, folder_path):
         results = []
         if folder_path and  len(folder_path) > 0:
@@ -97,17 +110,9 @@ class postgres_sql_utils():
             
         for file in os.listdir(self.folder_path):
             if file.endswith('.csv'):
-                csv_path = os.path.join(self.folder_path, file)
-                self.get_csv_column_title_file_marker(csv_path)
-                #     
-                #     result = self.load_csv_to_postgres(csv_file_path=csv_path,  table_name=table_name)
-                #     results.append(result)
-                # # except:
-                #     print('Error loading CSV file: ', file)
-                #     pass
-        
-
-        
+                csv_path = os.path.join(self.folder_path, file)              
+                result = self.load_csv_to_postgres(csv_file_path=csv_path,  table_name=table_name)
+                results.append(result)
 
         # Returning all results
         return results
@@ -122,18 +127,47 @@ class postgres_sql_utils():
     
     def load_csv_to_postgres(self, csv_file_path, table_name):
 
-        csv_folder_path = os.path.dirname(csv_file_path)
         csv_file_name = os.path.basename(csv_file_path)
-        clean_csv_export_path = os.path.join(csv_folder_path, 'clean', csv_file_name)
-        clean_csv_folder = os.path.join(csv_folder_path, 'clean')
-        if not os.path.exists(clean_csv_folder):
-            os.makedirs(clean_csv_folder)
+        encoding =  self.detect_encoding(csv_file_path)      
+        df = self.get_csv_as_dataframe(csv_file_path, encoding.lower())
         
+        #! Custom Logic for Transaction Files
+        # Get the market do identify which institution the file is from
+        marker = self.get_csv_column_title_file_marker(csv_file_path)
         
-        encoding =  self.detect_encoding(csv_file_path)
+        # get the specs for the marker
+        all_col_dict = get_column_name_dict()
+        col_dict = all_col_dict.get(marker, {})
+        if not col_dict or col_dict == {}: return [False, csv_file_name]
         
-        df = self.get_csv_as_dataframe(csv_file_path, encoding)
-        df.rename(columns=get_column_name_dict(), inplace=True)
+        # Remove any leading or trailing whitespace or invisible characters from column names
+        df.columns = df.columns.str.strip()
+        first_col_str = f"{df.columns[0]}"
+        df.rename(columns={first_col_str: first_col_str.strip()})
+        df.columns = [col.replace('\ufeff', '') for col in df.columns]
+        # Manually clean any unexpected characters from the first column name
+        # df.columns = [col.encode('utf-8').decode('utf-8-sig') for col in df.columns]
+
+        # Now, try selecting the columns as before
+        selected_columns = [col for col in col_dict.get('map', {}).keys() if col in df.columns]
+        df = df[selected_columns]
+        
+        # Rename the columns retained to align with the model-schema
+        df.rename(columns=col_dict.get('map', {}), inplace=True)
+        
+        #! Add columns that are standard
+        df['isvalid']=True
+        df['filesource']=csv_file_name
+        df['institutionname']=col_dict.get('institution', 'No Institution on File Map')
+        df['fileshape']=marker
+        df['cashflowmultiplier'] = col_dict.get('multiplier', 1)
+        
+        # Convert 'trandate' to a numeric format. Here we use `.astype(int)` on the timestamp.
+        # Using .astype(int) will produce nanoseconds since the epoch, so we divide by 1e9 to get seconds.
+        df['uniquebusinesskey'] = df['amount'] * (df['transactiondate'].astype('int64') // 1_000_000_000)
+        df = df.query('amount != 0')
+
+        
         
         
         self.insert_data('transaction', df)
@@ -141,7 +175,7 @@ class postgres_sql_utils():
         
         if df is None or df.empty:
             print(f'The DataFrame for {table_name} is empty or not properly loaded.')
-            print (f"The CSV does not exist at {clean_csv_export_path} or file is empty. Aborting load for this file.")
+            print (f"The CSV {csv_file_name} does not exist or the  file is empty. Aborting load for this file.")
             return [False, csv_file_name]
 
         
@@ -241,8 +275,7 @@ class postgres_sql_utils():
         print(f"\033[1;96mSaved {csv_path} as pickle.\033[0m")
         print(f"\033[1;96mTime to process {csv_path}: {time.time() - start_time}\033[0m")
         return df
-    
-    #!Supporting Function that gets the header row from a CSV file
+
     def get_CSV_header_row(self, file_path):
 
         # Read the first row and extract column names
@@ -252,7 +285,6 @@ class postgres_sql_utils():
 
         return column_names
 
-    #! Function to execute a SQL Command (not for SELECT statements)
     def insert_data(self,table_name, data):
         
         try:
@@ -276,12 +308,17 @@ class postgres_sql_utils():
                         data_list_of_dicts.append(item)
             
             response = supabase.table(table_name=table_name).insert(data_list_of_dicts).execute()
+            response2 = supabase.table(table_name).select("*").limit(25000).execute()
+            pass
+            # print(response2['data'])
+
+
+
+
             
         except Exception as e:
                print(e)
         
-    
-
 
 class personal_finance_database():
     def __init__(self):
@@ -304,6 +341,13 @@ class personal_finance_database():
 
         # Initialize an empty list to store CREATE TABLE statements
         create_table_statements = []
+        create_table_statements.append("""
+                                    CREATE OR REPLACE FUNCTION update_timestamp_user() 
+                                    RETURNS TRIGGER AS $$ BEGIN NEW.updatedat := CURRENT_TIMESTAMP;
+                                    NEW.updatedby := CURRENT_USER;
+                                    RETURN NEW;
+                                    END;
+                                    $$ LANGUAGE plpgsql;""")
 
         # Iterate through each entity in the JSON input
         for entity_name, entity_info in entities.items():
@@ -319,15 +363,20 @@ class personal_finance_database():
             # Iterate through the attributes of the entity and generate field definitions
             for attribute in entity_attributes_list:
                 for attr_name, attr_value in attribute.items():
-                    field_type = attr_value.get('type', 'TEXT')
+                    field_type = attr_value.get('Type', 'TEXT')
                     field_definitions.append(f"{attr_name} {field_type}")
 
             # Create the CREATE TABLE statement for the entity
             create_table_sql = f"CREATE TABLE {entity_name} ({', '.join(field_definitions)});"
 
             # Add the statement to the list
+            create_table_statements.append(f"DROP TABLE IF EXISTS {entity_name};")
             create_table_statements.append(create_table_sql.upper())
-
+            create_table_statements.append(f"DROP TRIGGER IF EXISTS set_update_fields ON {entity_name};")
+            create_table_statements.append(f"CREATE TRIGGER set_update_fields BEFORE UPDATE ON {entity_name} FOR EACH ROW EXECUTE FUNCTION update_timestamp_user();")
+        
+        with open (f"{'create-personal-finance-database.sql'}", 'w') as file:
+            file.write(f"{';\n\n'.join(create_table_statements)}")
         return create_table_statements
     
     
@@ -337,252 +386,9 @@ if __name__ == '__main__':
     
     pfd = personal_finance_database()
     psql = postgres_sql_utils()
-    # psql.execute_sql("")
-    
+
+    #! create_table_statements = pfd.generate_model_for_database( 'personal-finance', 'postgresql')
+
     psql.load_folder_of_csvs_to_one_table('transaction', f"{Path.cwd()}/transaction-files")
     
-    #! Create the table statements to generate the base tables
-    # create_table_statements = pfd.generate_model_for_database( 'personal-finance', 'postgresql')
-    # home_folder = Path.home()
-    # with open (f'{home_folder}/supabase/migrations/20241026155049_create_initial_tables.sql', 'w') as f:
-    #     for sql in create_table_statements:
-    #         f.write(f"\n{sql}\n\n")
-        
-
-    
-    
-    
-    
-    
-    # if table_name not in existing_tables or recreate_table:
-    #         table_is_new = True
-    #         create_table_query =  self.generate_create_table_query(df, table_name, schema=self.schema)
-    #         with self.connect() as conn:
-    #             conn.cursor().execute(f'DROP TABLE IF EXISTS {self.schema}.{table_name};')
-    #             conn.commit()
-    #             conn.cursor().execute(create_table_query)
-    #             conn.commit()
-        
-    #     if table_is_new:
-    #         primary_key_sql = f"ALTER TABLE {self.schema}.{table_name} ADD COLUMN id SERIAL4;"
-        
-    #         for col in list(df.columns):
-    #             try:
-    #                 if df[col].is_unique:
-    #                     print(f"{col} in unique in table {table_name}. Assigning it as primary key instead of creating an id field.")
-    #                     primary_key_sql = f"ALTER TABLE {self.schema}.{table_name} ADD PRIMARY KEY ({col});"
-    #                     break
-    #                 print(f'{table_name} loaded and assign pk of {col}')
-    #             except KeyError:
-    #                 pass
-    #         with self.connect() as conn:
-    #             print(f"\n{primary_key_sql}")
-    #             conn.cursor().execute(primary_key_sql)
-    #             conn.commit()
-        
-        
-        
-        
-    # #!Function to insert data into any table
-    # def insert_data(self, tablename, data):
-
-    #     conn = self.get_connection_to_db()
-    #     cursor = conn.cursor()
-
-    #     columns = list(data.keys())
-    #     placeholders = ", ".join(["%s"] * len(columns))
-
-    #     insert_query = f"""
-    #     INSERT INTO {tablename} ({", ".join(columns)})
-    #     VALUES ({placeholders})
-    #     """
-
-    #     escaped_data = self.escape_postgres_params(data.values())
-        
-    #     #print(data)
-    #     cursor.execute(insert_query, escaped_data)
-    #     conn.commit()
-    #     conn.close()
-    #     return True
-
-
-
-
-    # def execute_sql(self, sql):
-    #     with self.connect() as conn:
-    #         try:
-    #             # conn.cursor()o create the schema
-    #             conn.cursor().execute(sql)
-    #             conn.commit()
-    #         except Exception as e:
-    #             # Log the error for debugging purposes (or handle it differently)
-    #             print(f"Error executing sql statement:\n{sql}\n\nError:\n\n{e}")
-
-    # #! Function to get a dataframe from a SQL Select Statement
-    # def getDISTINCTValue(self, fieldname, tablename):
-    #     try:
-    #         conn = self.get_connection_to_db()
-    #         cursor = conn.cursor()
-            
-    #         sqlCommand = f"SELECT DISTINCT {fieldname} FROM {tablename}"
-            
-    #         cursor.execute(sqlCommand)
-            
-    #         # Fetch all results
-    #         rows = cursor.fetchall()
-            
-    #         columns = [desc[0] for desc in cursor.description]
-    #         df = pd.DataFrame(rows, columns=columns)
-
-    #         conn.close()
-    #         return df
-        
-    #     except psycopg2.Error as e:
-    #         print(e)
-    #         return False
-    
-    
-    #     #! Function to DELETE ALL TABLES in the current database
-    # def DELETE_ALL_TABLES(self, ):
-    #     try:
-    #         #Connect
-    #         conn = self.get_connection_to_db()
-    #         cursor = conn.cursor()
-            
-    #         cursor.execute("SELECT table_name FROM information_schema.tables WHERE table_schema='public'")
-    #         tables = cursor.fetchall()
-
-    #         # Build list of table names
-    #         table_names = [table[0] for table in tables]
-
-    #         # Remove system tables
-    #         table_names = [name for name in table_names if not 'pg_' in name and not 'sql_' in name]
-
-    #         # Generate DROP statements
-    #         drop_queries = [f'DROP TABLE IF EXISTS {name} CASCADE;' for name in table_names]
-        
-    #         # Execute DROP queries
-    #         for query in drop_queries:
-    #             print(query)
-    #             cursor.execute(query)
-            
-    #         conn.commit()
-    #         conn.close()
-
-    #         return True
-        
-    #     except psycopg2.Error as e:
-    #         print(e)
-    #         return False
-    #     # Get all table names 
-    
-    
-    
-    
-    # #!Function to properly escape special characters in postgresql
-    # def escape_postgres_params(self, params):
-    
-    #     escaped_params = []
-    
-    #     for param in params:
-    #         if isinstance(param, str):
-    #             new_param = param.replace('#', '##')
-    #             new_param = new_param.replace('\\', '\\\\')
-    #             new_param = new_param.replace('\'', '\'\'')
-    #             escaped_params.append(new_param)
-    #         else:
-    #             escaped_params.append(param)
-
-    #     return tuple(escaped_params)
-
-
-
-
-
-    # def fetch_all_rows(self, table_name, filters=None):
-    #     filters = filters or {}
-    #     where_clause = ""
-        
-    #     # Generate where clause if filters exist
-    #     if filters:
-    #         conditions = [f"{key} = ${i+1}" for i, key in enumerate(filters.keys())]
-    #         where_clause = f"WHERE {' AND '.join(conditions)}"
-
-    #     # Query to fetch all rows
-    #     query = f"SELECT * FROM {table_name} {where_clause};"
-
-    
-    #     with self.connect() as conn:
-    #         cursor = conn.cursor()
-            
-    #         if filters:
-    #             cursor.execute(query, *filters.values())
-    #             rows = cursor.fetchall()
-    #             cursor.close()
-    #         else:
-    #             cursor.execute(query)
-    #             rows = cursor.fetchall()
-    #             cursor.close()
-
-    
-    #     # Convert fetched rows to a list of dictionaries
-    #     row_dicts = [dict(row) for row in rows]
-        
-    #     # Convert list of dictionaries to DataFrame
-    #     df = pd.DataFrame(row_dicts)
-        
-    #     return df
-          
-    # def execute_select_query(self, sql):
-    #     try:
-    #         with self.connect() as conn:
-    #             cursor = conn.cursor()
-    #             cursor.execute(sql)
-    #             rows = cursor.fetchall()
-    #             cursor.close()
-                
-    #             if not rows:
-    #                 return pd.DataFrame()  # Return an empty DataFrame if no rows were fetched
-                
-    #             # Retrieve column names
-    #             colnames = [desc[0] for desc in cursor.description]
-                
-    #             # Convert fetched rows to a DataFrame
-    #             df = pd.DataFrame(rows, columns=colnames)
-                
-    #             return df
-
-    #     except Exception as e:
-    #         print(f"Error during SQL query execution: {e}")
-    #         return pd.DataFrame()  # Return an empty DataFrame in case of error
-
-
-
-        # df.to_csv(
-        #         clean_csv_export_path,
-        #         sep=',',                 # CSV separator
-        #         index=False,             # No index in the CSV
-        #         header=True,             # Include headers (column names)
-        #         na_rep='',               # Empty string for NaN values
-        #         float_format='%.2f',     # Format floats with 2 decimal places (for SQL compatibility)
-        #         mode='w',                # Write mode (overwrite)
-        #         encoding='utf-8'         # UTF-8 encoding
-        #     )
-
-
-    # def clean_str(self, str_text, prefix=None):
-    #     if prefix is None:
-    #         prefix = self.column_prefix
-    #     clean_col = re.sub(r'\W+', '', str_text.lower())
-    #     clean_col = f"{prefix}{clean_col.replace('"', '')}"
-    #     return clean_col
-    
-                
-
-        # # Bulk insert using psycopg2 and COPY
-        # with psycopg2.connect(dsn=self.connection_str) as pg_conn:
-        #     cursor = pg_conn.cursor()
-        #     with open(clean_csv_export_path, 'r') as f:
-        #         cursor.copy_expert(f'COPY {self.schema}.{table_name} FROM STDIN WITH CSV HEADER', f)
-        #     cursor.close()
-        #     pg_conn.commit()
+      

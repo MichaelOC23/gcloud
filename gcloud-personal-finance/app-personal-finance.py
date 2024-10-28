@@ -85,7 +85,7 @@ def load_and_process_csv(folder, filename):
         print(f"\033[1;96mLoaded {filename} with specified dtypes from CSV.\033[0m")
     else:
         # CSV Will be processed as new
-        with open(f'transaction-files/{filename}') as f:
+        with open(f'transaction-files-test/{filename}') as f:
             
             # Read , lower case and remove spaces from header
             header = f.readline().strip().split(',')
